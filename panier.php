@@ -41,7 +41,6 @@
             );
 
         }   else if($panierExiste = true){
-                //print_r($panier);
                 for ($i = 0; $i < $np; $i++) { //boucle affichage contenu panier
                     nombreProduit();
                     echo $panier[$i];
@@ -53,14 +52,14 @@
                     $panier[$np+1] = array($nom, $prix ,$quantite);
                 }
                 function calculSomme(){
-                    nombreProduit();
+                    nombreProduit(); //actualisation du nombre de produit
                     $somme = 0;
                     for ($i=0; $i< $np; $i++){
                         $sommme = $sommme + $panier[$i][1];
                     }
                 }
                 function augmenteQuantite($nom){ //fonction ajout d'un même produit
-                    nombreProduit();
+                    nombreProduit(); //actualisation du nombre de produit
                     for ($i=0; $i< $np; $i++){
                         if($panier[$i][1] == $nom){
                             $panier[$i][2] = $panier[$i][2] + 1;
@@ -68,7 +67,7 @@
                     }
                 }
                 function reduireQuantite($nom){ //fonction reduire la quantité de produit
-                    nombreProduit();
+                    nombreProduit(); //actualisation du nombre de produit
                     for ($i=0; $i< $np; $i++){
                         if($panier[$i][1] == $nom){
                             $panier[$i][2] = $panier[$i][2] - 1;
@@ -76,7 +75,7 @@
                     }
                 }
                 function retire($nom){ //fonction suppression du produit
-                    nombreProduit();
+                    nombreProduit(); //actualisation du nombre de produit
                     for ($i=0; $i< $np; $i++){
                         if($panier[$i][0] == $nom){ 
                             $panier[$i][0] = null;
