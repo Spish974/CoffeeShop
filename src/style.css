@@ -1,3 +1,87 @@
-h1{
-    color:red;
+@font-face {
+    font-family: 'Lemon';
+    src: url('font/Lemon Brush.otf');
+}
+body {
+    margin: 0;
+}
+.mainmenu {
+    text-align: right;
+    padding: 30px 20px 0 0;
+    max-width: 1210px;
+    margin: auto;
+    cursor: pointer;
+}
+.mainmenu .contener {
+    cursor: pointer;
+    width: auto;
+    display: inline-block;
+}
+.mainmenu a {
+    color: #dedede;
+    text-decoration: none;
+    font-family: "Lemon";
+    font-size: 40px;
+    width: 130px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    transition: color 0.3s;
+}
+.bckg-img {
+    background-image: url(img/maxresdefault.jpg);
+    height: 700px;
+    background-size: cover;
+    background-position-y: 10%;
+    background-color: black;
+    position: relative;
+}
+.bckg-img::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.2;
+    pointer-events: none;
+}
+img.logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 250px;
+    object-fit: scale-down;
+    border: solid 1px white;
+    border-bottom: none;
+    border-radius: 500px;
+}
+.mainmenu i.fas.fa-shopping-bag {
+    display: inline-block;
+    font-size: 24px;
+    transform: translateY(-4px);
+    position: relative;
+}
+.mainmenu.barre {
+    position: fixed;
+    right: 0;
+    width: 100%;
+    max-width: none;
+    padding: 10px;
+    background-color: #2d2d2d;
+    z-index: 1000;
+    animation-name: showdown;
+    animation-duration: 0.5s;
+}
+.mainmenu.barre a {
+    font-size: 33px;
+}
+.mainmenu a:hover {
+    color: #ecbd67;
+}
+@keyframes showdown{
+    from{opacity:0;
+        transform: translateY(-50px);}
+    to{opacity:1;transform: translateY(0);}
 }
