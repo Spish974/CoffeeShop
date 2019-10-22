@@ -21,6 +21,7 @@
     if ($page == "menu" || $page == "panier" || $page == "compte") {
         echo "<div class='titrepage'><h1>" . $page . "</h1></div>";
         echo "<div class='contenu' style='margin-bottom:50vh;'>";
+        require($page.'.php');
         echo "</div>";
     } else {
         echo "<p>aucune page trouver</p>";

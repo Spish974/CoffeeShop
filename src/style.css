@@ -96,8 +96,8 @@ img.logo {
 .mainmenu a:hover {
     color: #ce905d;
 }
-.accueil .mainmenu a:nth-child(n+2) {
-    border-left: solid 1px #949494;
+.accueil .mainmenu .contener>a:nth-child(n) {
+    border-right: solid 1px #949494;
 }
 i.godown {
     color: white;
@@ -222,4 +222,75 @@ p.credit {
     font-family: sans-serif;
     font-size: 14px;
     color: #7d7d7d;
+}
+.popup-login.hind {
+    display: none;
+    animation-play-state: paused;
+}
+.popup-login .popform{
+    animation-play-state: running;
+}
+.popup-login {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.43);
+    z-index: 99;
+    top: 0;
+}
+.popup-login .popform{
+    background-color: white;
+    height: 300px;
+    width: 450px;
+    margin: auto;
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+    border-radius: 15px;
+    box-shadow: 4px 4px 20px -6px #424242;
+    text-align: center;
+    animation-name: popup;
+    animation-duration: 0.3s;
+}
+.popup-login .popform .close {
+    text-align: right;
+    top: -10px;
+    right: -10px;
+    position: relative;
+}
+.popup-login .popform .close i {
+    font-size: 32px;
+    background: #ad8266;
+    border-radius: 30px;
+    cursor: pointer;
+    color: #ffffff;
+    padding: 1px;
+}
+
+@keyframes popup{
+    from{height: 0;
+        width: 0;}
+    to{height: 300px;
+        width: 450px;}
+}
+.popup-login h1.titrepopup {
+    font-family: sans-serif;
+    font-weight: 100;
+    color: #888888;
+    margin: 0px 0 1em;
+}
+.popup-login .saisie input {
+    margin-bottom: 1.5em;
+    border: solid 1px #cacaca;
+    height: 25px;
+    border-radius: 30px;
+}
+
+.popup-login .saisie button{
+background: #dedad7;
+border: solid 1px #c5c5c5;
+height: 30px;
+padding: 2px 30px;
+border-radius: 30px;
+cursor: pointer;
 }

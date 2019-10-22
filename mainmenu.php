@@ -6,8 +6,8 @@
         <a href="index.php">Accueil</a>
         <a href="template.php?page=menu">Menu</a>
         <a href="template.php?page=panier"><i class="fas fa-shopping-bag"></i> Panier</a>
-        <a href="template.php?page=compte">Compte</a>
+        <span id="compte"></span>
     </div>
 </div>
-
+<?php require('popuplogin.php');?>
 </html>
