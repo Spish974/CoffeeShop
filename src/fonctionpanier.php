@@ -25,13 +25,13 @@
                 function calculSomme(){
                     nombreProduit(); //actualisation du nombre de produit
                     $somme = 0;
-                    for ($i=0; $i< $np; $i++){
+                    for ($i=1; $i< $np; $i++){
                         $sommme = $sommme + $panier[$i][1];
                     }
                 }
                 function augmenteQuantite($nom){ //fonction ajout d'un même produit
                     nombreProduit(); //actualisation du nombre de produit
-                    for ($i=0; $i< $np; $i++){
+                    for ($i=1; $i< $np; $i++){
                         if($panier[$i][1] == $nom){
                             $panier[$i][2] = $panier[$i][2] + 1;
                         }
@@ -39,14 +39,14 @@
                 }
                 function reduireQuantite($nom){ //fonction reduire la quantité de produit
                     nombreProduit(); //actualisation du nombre de produit
-                    for ($i=0; $i< $np; $i++){
+                    for ($i=1; $i< $np; $i++){
                         if($panier[$i][1] == $nom){
                             $panier[$i][2] = $panier[$i][2] - 1;
                         }
                         if($panier[$i][2] == 0){
                             function retire($nom){ //fonction suppression du produit
                                 nombreProduit(); //actualisation du nombre de produit
-                                for ($i=0; $i< $np; $i++){
+                                for ($i=1; $i< $np; $i++){
                                     if($panier[$i][0] == $nom){ 
                                         if(confirm("Voulez-vous retirer ce produit ?")){
                                             $panier[$i][0] = null;
