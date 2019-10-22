@@ -1,13 +1,126 @@
 
 
-/* page de contact */
+/***************page de contact*************** */
 
-.case_general{
-    width: 100%;
-    height: 20px
-    
+
+/* information lié au informations générales */
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+    background-color: #f3f2f1;
+}
+h1{
+    margin-left: 10%;
 }
 
+#conteneur{
+    height: 100%;
+}
+#formulaire_contact{
+   height: 100%;
+   width: 100%;
+   margin-left: 10%;
+}
 #form_infos_générale{
-    padding-right: 50%;
+    height: 35%;
+    border: transparent;
+    font-weight: 500;
+    font-size: 26px;
+}
+
+
+legend{
+    font-weight: 500;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 10px;
+}
+
+.libelle_general{
+    display:inline-block;
+    width: 6%;
+    margin: 3% 3% 1% 0;
+    
+
+    font-weight: 500;
+    font-size: 18px;
+    text-align: right;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#case_nom, #case_prenom, #case_email{
+    display: inline-block; 
+    width: 30%;
+    border: 1px solid rgb(216, 211, 211); 
+    border-radius: 6px; 
+    
+    height: 45px;
+}
+
+
+
+
+#libelle_case_nom, #libelle_case_email, #libelle_case_prenom{
+    margin-bottom: 0 px;
+}
+
+
+
+/* informations liée au message */
+
+#form_infos_message{
+    height: 50%;
+}
+#form_infos_message{
+    border: transparent;
+}
+
+.libelle_message{
+    
+    display:inline-block;
+    width: 7%;
+    margin: 3% 3% 3% 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    text-align: right ;
+
+}
+
+/*#libelle_objet{
+    display:inline-block;
+    width: 10%;
+    margin: 3% 3% 3% 0;
+    font-weight: 400;
+    font-size: 18px;
+    text-align: right;
+}*/
+
+#case_objet, #case_message{
+    display: inline-block; 
+    width: 30%;
+    border: 1px solid rgb(216, 211, 211); 
+    border-radius: 6px; 
+    
+    height: 40px;
+}
+
+#libelle_case_objet{
+    margin: 3% 0 1% 0;
+}
+#libelle_case_message{
+    height: 50%;
+}
+
+#case_message{
+  height: 60%;  
+}
+
+
+
+#bouton{
+    margin-left: 25%;
 }

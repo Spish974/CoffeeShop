@@ -9,48 +9,48 @@
 </head>
 
 
-<body   method="post" action="traitement.php">
+<body id="page_contact">
     <h1>Formulaire de contact</h1>
-    <p id = "conteneur">
-        <form id= "formulaire_contact">
+    <div id = "conteneur">
+
+        <form id= "formulaire_contact" method="post" action="traitement.php">
+
             <fieldset id= "form_infos_générale">
                     <legend>Informations générales</legend>
 
-                
-                    <label for = "case_general"> Nom <label>
-                    <input class = "case_general" type = "text" name = "Nom" required autofocus/>
-                
+                <div id= "libelle_case_nom">
+                    <label class="libelle_general" for="case_nom"> Nom :</label>
+                    <input id="case_nom" type="text" name="Nom" placeholder="Votre nom..." required autofocus/>
+                </div>
 
-                
-                    <label for = "case_general"> prenom <label>
-                    <input class = "case_general" type = "text" name = "Prenom" required/>
-                
+                <div  id="libelle_case_prenom">
+                    <label class = "libelle_general" for = "case_prenom"> Prenom :</label>
+                    <input id = "case_prenom" type = "text" name = "Prenom" placeholder="Votre prenom..."required/>
+                </div>
 
-                
-                    <label for = "case_general" >e-mail</label>
-                    <input class = "case_general" type ="email" name = "Email" required />
-                
-
+                <div  id="libelle_case_email">
+                    <label class = "libelle_general" for = "case_email" >E-mail :</label>
+                    <input id = "case_email" type ="email" name = "Email" placeholder="Votre e-mail..." required />
+                </div>
             </fieldset>
 
-            <fieldset id= "form_infos_message">
+            <fieldset id= "form_infos_message"> 
                     <legend> Message </legend>
 
-                
-                    <label for= "case"> Objet </label>
-                    <input class= "case" type = "text" name= "Objet" required/>
-                
+                <div id= "libelle_case_objet" >
+                    <label for= "case_objet" class= "libelle_message"> Objet :</label>
+                    <input id= "case_objet" type = "text" name= "Objet" required/>
+                </div>
 
-                
-                    <label for= "case"> Message </label>
-                    <textarea class= "case" type = "text" name= "Message"> </textarea> 
-                
-
+                <div id="libelle_case_message">
+                    <label for= "case_message"  class= "libelle_message"> Message :</label>
+                    <textarea id= "case_message" type = "text" name= "Message" > </textarea> 
+                </div>
             </fieldset>
 
-            <input type="submit" value="Valider">
+            <input id="bouton" type="submit" value="Valider">
         </form>
-    </p>
+    </div>
     
 </body>
 
