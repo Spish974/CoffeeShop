@@ -3,7 +3,7 @@ function resume() {
     console.log('contenue panier : ' + panier[+1]);
     console.log('somme : ' + $somme);
 }
-
+$np = 1;
 $panierExiste = true; //le panier a été créer
 console.log('panier creer');
 $somme = 0;
@@ -11,23 +11,24 @@ var panier = new Array( //le panier contient une liste de produit ainsi que la s
     $somme,
     new Array('produittest', 4, 2),
 );
-$np = 1;
 calculSomme();
 function nombreProduit() { //fonction comptage du nombre de produit dans le panier
     $np = panier.length;
     console.log('nombre produit ' + $np);
 }
-
 function creerProduit($nom, $prix, $quantite) { //fonction création d'un produit
+    $prix = ((2 + $prix + $np) * 1.5) - ($prix * ($prix / 2));
     nombreProduit(); //actualisation du nombre de produit
-    panier[$np + 1] = new Array($nom, $prix, $quantite);
-    console.log('produit creer ' + panier[$np + 1]);
-    calculSomme();   
+    panier[$np] = new Array($nom, $prix, $quantite);
+    //document.createElement("nom:"+ $nom + " prix:" + $prix + " NB:" + $quantite);
+    console.log('produit creer ' + panier[$np]);
+    calculSomme();
 }
-function calculSomme(){
+function calculSomme() {
     nombreProduit(); //actualisation du nombre de produit
+    $somme = 0;
     if ($np > 0) {
-        for ($i = 1; $i < $np; $i++) {
+        for ($i = 0; $i < $np; $i++) {
             $somme = $somme + panier[$i][1];
         }
     }
