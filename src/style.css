@@ -132,13 +132,15 @@ legend{
     font-family: 'Lemon';
     src: url('font/Lemon Brush.otf');
 }
+.contener-main-menu {
+    height: 60px;
+}
 body {
     margin: 0;position: relative;
 }
 footer {
     bottom: 0;
     width: 100%;
-    height: 300px;
     background-color: #313131;
 }
 .mainmenu {
@@ -207,7 +209,7 @@ img.logo {
     right: 0;
     width: 100%;
     max-width: none;
-    padding: 14px;
+    padding: 7px;
     background-color: #464343;
     z-index: 1000;
     animation-name: showdown;
@@ -256,6 +258,7 @@ img.imgcoffee {
 }
 .mainmenu .titlemenu {
     display: inline-block;
+    padding-left: 20px;
 }
 .mainmenu .titlemenu a {
     font-size: 60px;
@@ -272,6 +275,7 @@ img.imgcoffee {
 .mainmenu.barre .titlemenu {
     left: 70px;
     position: absolute;
+    padding-left: none;
 }
 .mainmenu.barre .contener {
     cursor: pointer;
@@ -295,8 +299,15 @@ p.textaccueil {
 .template .mainmenu a {
     color: #565454;
 }
-.template .mainmenu a:nth-child(n+2) {
-    border-left: solid 1px #565454;
+.template .mainmenu .contener>a:nth-child(n) {
+    border-right: solid 1px #565454;
+}
+.template .mainmenu.barre .contener a {
+    font-size: 30px;
+}
+.mainmenu.barre .titlemenu a {
+    font-size: 45px;
+    padding-top: 3px;
 }
 .template .mainmenu.barre a {
     color: #dedede;
@@ -320,7 +331,7 @@ footer h1{
 }
 footer .cont-1 {
     text-align: center;
-    padding: 40px 0 30px;
+    padding: 15px 0;
 }
 footer .cont-1 a {
     font-size: 25px;
@@ -336,6 +347,7 @@ footer .cont-1 a:hover {
 }
 footer .cont-2 {
     text-align: center;
+    padding: 10px 0 75px;
 }
 footer .cont-2 a {
     text-align: center;
@@ -344,7 +356,7 @@ footer .cont-2 a {
     color: #7d7d7d;
     font-family: sans-serif;
 }
-p.credit {
+.credit {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -352,6 +364,9 @@ p.credit {
     font-family: sans-serif;
     font-size: 14px;
     color: #7d7d7d;
+    padding: 15px 0;
+    margin: 0;
+    border-top: solid 1px #484848;
 }
 .popup-login.hind {
     display: none;
@@ -373,14 +388,17 @@ p.credit {
     height: 300px;
     width: 450px;
     margin: auto;
-    top: 50%;
+    top: calc(50% - 150px);
     position: relative;
-    transform: translateY(-50%);
     border-radius: 15px;
     box-shadow: 4px 4px 20px -6px #424242;
     text-align: center;
     animation-name: popup;
     animation-duration: 0.3s;
+}
+@keyframes popup{
+    from{transform: scale(0);}
+    to{transform: scale(1);}
 }
 .popup-login .popform .close {
     text-align: right;
@@ -396,13 +414,6 @@ p.credit {
     color: #ffffff;
     padding: 1px;
 }
-
-@keyframes popup{
-    from{height: 0;
-        width: 0;}
-    to{height: 300px;
-        width: 450px;}
-}
 .popup-login h1.titrepopup {
     font-family: sans-serif;
     font-weight: 100;
@@ -410,10 +421,14 @@ p.credit {
     margin: 0px 0 1em;
 }
 .popup-login .saisie input {
-    margin-bottom: 1.5em;
     border: solid 1px #cacaca;
     height: 25px;
     border-radius: 30px;
+    display: block;
+    margin: auto;
+    margin-bottom: 1.5em;
+    font-size: 15px;
+    padding: 3px 10px;
 }
 
 .popup-login .saisie button{
