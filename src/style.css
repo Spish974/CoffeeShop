@@ -18,11 +18,13 @@ h1{
 #conteneur{
     height: 100%;
 }
+
 #formulaire_contact{
    height: 100%;
    width: 100%;
    margin-left: 10%;
 }
+
 #form_infos_générale{
     height: 35%;
     border: transparent;
