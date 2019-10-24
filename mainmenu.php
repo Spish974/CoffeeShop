@@ -1,8 +1,11 @@
 <?php
-require "Classe/Client.php";
-$client = new Client;
-if(isset($_POST["usrname"]) && isset($_POST["password"])){
-    $client->verifLogin($_POST["usrname"],$_POST["password"]);
+session_start();
+if (isset($_SESSION["logconnect"])==false){
+require('Classe/ConnectBDD.php');
+if(isset($_POST["action"]) && isset($_POST["usrname"]) && isset($_POST["password"])){
+    $aze = new Base;
+    $aze->TestClientConnexion($_POST["usrname"],$_POST["password"]);
+}
 }
 ?>
 <div class="contener-main-menu">
@@ -12,7 +15,7 @@ if(isset($_POST["usrname"]) && isset($_POST["password"])){
             <a href="index.php">Accueil</a>
             <a href="template.php?page=menu">Menu</a>
             <a href="template.php?page=panier"><i class="fas fa-shopping-bag"></i> Panier</a>
-            <span id="compte"></span>
+            <span id="compte"><?php if (isset($_SESSION["logconnect"])==false){echo "<a class='login'>Login</a>";}else{echo '<a href="template.php?page=compte">Compte</a>';}?></span>
         </div>
     </div>
 </div>

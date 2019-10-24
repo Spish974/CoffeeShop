@@ -161,9 +161,10 @@ img.imgcoffee {
     margin-top: 0.3em;
 }
 p.textaccueil {
-    font-size: 18px;
-    font-family: cursive;
-    max-width: 80%;
+    font-size: 16px;
+    font-family: 'Roboto';
+    width: 80%;
+    max-width: 900px;
     margin: auto;
 }
 .template .mainmenu a {
@@ -238,12 +239,14 @@ footer .cont-2 a {
     margin: 0;
     border-top: solid 1px #484848;
 }
+.popup-login.act .popform{
+    animation-name: popup;
+    animation-duration: 0.3s;
+    animation-play-state: running;
+}
 .popup-login.hind {
     display: none;
     animation-play-state: paused;
-}
-.popup-login .popform{
-    animation-play-state: running;
 }
 .popup-login {
     position: fixed;
@@ -263,8 +266,6 @@ footer .cont-2 a {
     border-radius: 15px;
     box-shadow: 4px 4px 20px -6px #424242;
     text-align: center;
-    animation-name: popup;
-    animation-duration: 0.3s;
 }
 @keyframes popup{
     from{transform: scale(0);}

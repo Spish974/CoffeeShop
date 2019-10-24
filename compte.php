@@ -1,12 +1,5 @@
 <!DOCTYPE html>
 <html>
-<?php
-require "Classe/Client.php";
-$client = new Client();
-if(isset($_POST["usrname"]) && isset($_POST["password"])){
-    $client->verifLogin($_POST["usrname"],$_POST["password"]);
-}
-?>
 
 <form action="" method="POST" style="border:solid 1px black;padding:10px;margin:20px">
     <div>
@@ -23,7 +16,7 @@ if(isset($_POST["usrname"]) && isset($_POST["password"])){
 
 <br><br>
 <div>
-    <button onClick="deconnexion()">deconnexion</button>
+    <a href="deconnexion.php">deconnexion</a>
 </div>
 
 </html>
