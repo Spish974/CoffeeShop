@@ -1,3 +1,4 @@
+/*<<<<<<< HEAD*/
 
 
 /***************page de contact*************** */
@@ -125,4 +126,302 @@ legend{
 
 #bouton{
     margin-left: 25%;
+}
+
+@font-face {
+    font-family: 'Lemon';
+    src: url('font/Lemon Brush.otf');
+}
+body {
+    margin: 0;position: relative;
+}
+footer {
+    bottom: 0;
+    width: 100%;
+    height: 300px;
+    background-color: #313131;
+}
+.mainmenu {
+    position: relative;
+    padding: 20px 20px 0 0;
+    max-width: 1210px;
+    margin: auto;
+    cursor: pointer;
+}
+.mainmenu .contener {
+    cursor: pointer;
+    width: auto;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+}
+.mainmenu a {
+    color: #dedede;
+    text-decoration: none;
+    font-family: "Lemon";
+    font-size: 35px;
+    width: 130px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    transition: color 0.1s;
+}
+.bckg-img {
+    background-image: url(img/maxresdefault.jpg);
+    height: 600px;
+    background-size: cover;
+    background-position-y: 10%;
+    background-color: black;
+    position: relative;
+}
+.bckg-img::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.4;
+    pointer-events: none;
+}
+img.logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 230px;
+    height: 230px;
+    object-fit: scale-down;
+    border: solid 1px white;
+    border-bottom: none;
+    border-radius: 500px;
+    padding: 10px;
+}
+.mainmenu i.fas.fa-shopping-bag {
+    display: inline-block;
+    font-size: 24px;
+    transform: translateY(-4px);
+    position: relative;
+}
+.mainmenu.barre {
+    position: fixed;
+    right: 0;
+    width: 100%;
+    max-width: none;
+    padding: 14px;
+    background-color: #464343;
+    z-index: 1000;
+    animation-name: showdown;
+    animation-duration: 0.5s;
+    text-align: end;
+    top: 0;
+}
+@keyframes showdown{
+    from{opacity:0;
+        transform: translateY(-50px);}
+    to{opacity:1;transform: translateY(0);}
+}
+.contenu {
+    text-align: center;
+}
+.mainmenu a:hover {
+    color: #ce905d;
+}
+.accueil .mainmenu .contener>a:nth-child(n) {
+    border-right: solid 1px #949494;
+}
+i.godown {
+    color: white;
+    font-size: 50px;
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+    transform: translate(-50%, -50%);
+    animation-name: animgodown;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    transition: opacity 0.5s;
+}
+@keyframes animgodown{
+    0%{bottom: 0px;}
+    70%{bottom: 20px;}
+    100%{bottom: 0px;}
+}
+img.imgcoffee {
+    width: 250px;
+    margin: auto;
+    margin-top: 40px;
+    display: block;
+    left: -35px;
+    position: relative;
+}
+.mainmenu .titlemenu {
+    display: inline-block;
+}
+.mainmenu .titlemenu a {
+    font-size: 60px;
+    width: fit-content;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+.mainmenu.barre .titlemenu a {
+    font-size: 55px;
+}
+/*.mainmenu.barre .contener a {
+    font-size: 34px;
+}*/
+.mainmenu.barre .titlemenu {
+    left: 70px;
+    position: absolute;
+}
+.mainmenu.barre .contener {
+    cursor: pointer;
+    width: auto;
+    display: inline-block;
+    position: relative;
+}
+.contenu h1 {
+    font-family: "Lemon";
+    font-size: 60px;
+    font-weight: 100;
+    color: #887268;
+    margin-top: 0.3em;
+}
+p.textaccueil {
+    font-size: 18px;
+    font-family: cursive;
+    max-width: 80%;
+    margin: auto;
+}
+.template .mainmenu a {
+    color: #565454;
+}
+.template .mainmenu a:nth-child(n+2) {
+    border-left: solid 1px #565454;
+}
+.template .mainmenu.barre a {
+    color: #dedede;
+}
+.template .mainmenu a:hover {
+    color: #ce905d;
+}
+.titrepage {
+    margin: 80px 0 0;
+    text-align: center;
+}
+footer h1{
+    font-family: "Lemon";
+    font-weight: 100;
+    font-size: 50px;
+    text-decoration: underline;
+    color: #debea2;
+    text-align: center;
+    margin: 0;
+    padding: 30px 0 20px;
+}
+footer .cont-1 {
+    text-align: center;
+    padding: 40px 0 30px;
+}
+footer .cont-1 a {
+    font-size: 25px;
+    color: #949494;
+    margin: 0px 10px;
+    cursor: pointer;
+    transition: color 0.2s;
+    width: 35px;
+    display: inline-block;
+}
+footer .cont-1 a:hover {
+    color: #f1f1f1;
+}
+footer .cont-2 {
+    text-align: center;
+}
+footer .cont-2 a {
+    text-align: center;
+    width: 100px;
+    display: inline-block;
+    color: #7d7d7d;
+    font-family: sans-serif;
+}
+p.credit {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #7d7d7d;
+}
+.popup-login.hind {
+    display: none;
+    animation-play-state: paused;
+}
+.popup-login .popform{
+    animation-play-state: running;
+}
+.popup-login {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.43);
+    z-index: 99;
+    top: 0;
+}
+.popup-login .popform{
+    background-color: white;
+    height: 300px;
+    width: 450px;
+    margin: auto;
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+    border-radius: 15px;
+    box-shadow: 4px 4px 20px -6px #424242;
+    text-align: center;
+    animation-name: popup;
+    animation-duration: 0.3s;
+}
+.popup-login .popform .close {
+    text-align: right;
+    top: -10px;
+    right: -10px;
+    position: relative;
+}
+.popup-login .popform .close i {
+    font-size: 32px;
+    background: #ad8266;
+    border-radius: 30px;
+    cursor: pointer;
+    color: #ffffff;
+    padding: 1px;
+}
+
+@keyframes popup{
+    from{height: 0;
+        width: 0;}
+    to{height: 300px;
+        width: 450px;}
+}
+.popup-login h1.titrepopup {
+    font-family: sans-serif;
+    font-weight: 100;
+    color: #888888;
+    margin: 0px 0 1em;
+}
+.popup-login .saisie input {
+    margin-bottom: 1.5em;
+    border: solid 1px #cacaca;
+    height: 25px;
+    border-radius: 30px;
+}
+
+.popup-login .saisie button{
+background: #dedad7;
+border: solid 1px #c5c5c5;
+height: 30px;
+padding: 2px 30px;
+border-radius: 30px;
+cursor: pointer;
+/*>>>>>>> 32bd2016ed087c47f10f2214af325419b05b820b*/
 }
