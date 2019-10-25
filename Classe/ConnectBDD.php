@@ -12,6 +12,21 @@ class Base
     public function __toString()
     { }
 
+    public function recupPanier(){
+        $pan = $this->pdo->query("SELECT `Libellé`,`Prix` FROM `Produit` ");
+        if ($pan->rowCount() > 0) {
+            $_SESSION["Libellé"] = array();
+            $_SESSION["Prix"] = array();
+
+            while($donnees = $pan->fetch()){
+
+                $_SESSION["Libellé"][] = $donnees["Libellé"];
+                $_SESSION["Prix"][] = $donnees["Prix"];
+               
+            }
+        }
+    }
+
     public function TestClientConnexion($user,$pass)
     {
         $stmt = $this->pdo->query("SELECT * FROM `Client` WHERE `Username`='$user' AND `Password`='$pass'");
@@ -22,6 +37,10 @@ class Base
             }
             $_SESSION["nomsession"] = $donnees['Nom'];
             $_SESSION["prenomsession"] = $donnees['Prenom'];
+            $_SESSION["Telephonesession"] = $donnees['Telephone'];
+            $_SESSION["Index_Adressesession"] = $donnees['Index_Adresse'];
+            $_SESSION["Usernamesession"] = $donnees['Username'];
+            $_SESSION["Emailsession"] = $donnees['Email'];
             return "1";
         } else {
             return "0";
@@ -35,3 +54,4 @@ class Base
     }
 
 }
+?>

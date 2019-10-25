@@ -1,11 +1,11 @@
 <?php
 session_start();
 if (isset($_SESSION["logconnect"])==false){
-require('Classe/ConnectBDD.php');
-if(isset($_POST["action"]) && isset($_POST["usrname"]) && isset($_POST["password"])){
-    $bdd = new Base;
-    $bdd->TestClientConnexion($_POST["usrname"],$_POST["password"]);
-}
+    require('Classe/ConnectBDD.php');
+    if(isset($_POST["action"]) && isset($_POST["usrname"]) && isset($_POST["password"])){
+        $bdd = new Base;
+        $bdd->TestClientConnexion($_POST["usrname"],$_POST["password"]);
+    }
 }
 ?>
 <div class="contener-main-menu">
