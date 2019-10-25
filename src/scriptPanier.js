@@ -1,8 +1,4 @@
-function resume() {
-    console.log('panier ' + $panierExiste);
-    console.log('contenue panier : ' + panier[+1]);
-    console.log('somme : ' + $somme);
-}
+
 $np = 1;
 $panierExiste = true; //le panier a été créer
 console.log('panier creer');
@@ -11,11 +7,22 @@ var panier = new Array( //le panier contient une liste de produit ainsi que la s
     $somme,
     new Array('produittest', 4, 2),
 );
-calculSomme();
+
+
+function resume() {
+    console.log('panier ' + $panierExiste);
+    console.log('contenue panier : ' + panier[+1]);
+    calculSomme();
+    console.log('somme : ' + $somme);
+}
+
+
 function nombreProduit() { //fonction comptage du nombre de produit dans le panier
     $np = panier.length;
     console.log('nombre produit ' + $np);
 }
+
+
 function creerProduit($nom, $prix, $quantite) { //fonction création d'un produit
     $prix = ((2 + $prix + $np) * 1.5) - ($prix * ($prix / 2));
     nombreProduit(); //actualisation du nombre de produit
@@ -24,6 +31,8 @@ function creerProduit($nom, $prix, $quantite) { //fonction création d'un produi
     console.log('produit creer ' + panier[$np]);
     calculSomme();
 }
+
+
 function calculSomme() {
     nombreProduit(); //actualisation du nombre de produit
     $somme = 0;
@@ -33,6 +42,8 @@ function calculSomme() {
         }
     }
 }
+
+
 function augmenteQuantite($nom) { //fonction ajout d'un même produit
     nombreProduit(); //actualisation du nombre de produit
     for ($i = 0; $i < $np; $i++) {
@@ -42,6 +53,8 @@ function augmenteQuantite($nom) { //fonction ajout d'un même produit
         }
     }
 }
+
+
 function reduireQuantite($nom) { //fonction reduire la quantité de produit
     nombreProduit(); //actualisation du nombre de produit
     for ($i = 0; $i < $np; $i++) {
