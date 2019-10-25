@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
-
-<head>
     <?php require("head.php");?>
-</head>
 
 <body class="accueil" style="background-color: #f3f2f1">
     <div class="bckg-img">

@@ -7,7 +7,7 @@
     if (isset($_GET['page'])) {
         $page = $_GET['page'];
     }
-    if ($page == "menu" || $page == "panier" || $page == "compte") {echo "<title>" . $page . "</title>";} else {$page="1";echo "<title>Page introuvable</title>";}
+    if ($page == "menu" || $page == "panier" || $page == "compte" || $page == "admin") {echo "<title>" . $page . "</title>";} else {$page="1";echo "<title>Page introuvable</title>";}
     ?>
     <?php require("head.php");?>
 </head>
