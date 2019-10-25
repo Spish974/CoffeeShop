@@ -13,6 +13,9 @@
         <img src="src/img/CapLatteLockup-1254x884-IMG.png" class="imgcoffee" alt="coffee">
         <h1>Une envie de gourmandise?</h1>
         <p class="textaccueil">Le favori classique de Tassimo s'est un peu transformé avec Coffee Shop Selection ! Chai latte est une spécialité savoureuse de thé avec des épices Indiennes et mousse de lait. <br>Ce thé crémeux transforme votre pause quotidienne en un moment de détente exotique. </p>
+        <div class="img-2-lunch">
+        <div class="acc-info2"><h1>Ambiance Chill</h1></div>
+        </div>
         <!---->
     </div>
     <?php require('footer.php'); ?>
