@@ -8,11 +8,11 @@ $(document).ready(function () {
             $("i.godown").css("opacity", "");
         }
     })
+
     $(".mainmenu .contener #compte a.login").on("click", function () {
-            //sessionStorage.setItem("connexion", "connecter");
-            //location.reload();
             $(".popup-login").removeClass("hind");
     })
+    
     $(".popup-login .popform .close").on("click", function () {
         $(".popup-login").addClass("hind");
         $(".popup-login").addClass("act");
