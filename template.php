@@ -9,12 +9,7 @@
     }
     if ($page == "menu" || $page == "panier" || $page == "compte") {echo "<title>" . $page . "</title>";} else {$page="1";echo "<title>Page introuvable</title>";}
     ?>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="src/img/icon.png" />
-    <link href="src/style.css" rel="stylesheet" />
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="src/script.js"> </script>
-    <link href="src/fontawesome/css/all.css" rel="stylesheet">
+    <?php require("head.php");?>
 </head>
 
 <body style="background-color: #ffffff;" class="template">

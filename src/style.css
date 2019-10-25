@@ -1,18 +1,23 @@
 /*<<<<<<< HEAD*/
 
-
 /***************page de contact*************** */
 
-
 /* information lié au informations générales */
-html{
+
+html {
     height: 100%;
 }
-body{
+
+body {
     height: 100%;
     background-color: #f3f2f1;
 }
-h1{
+
+p {
+    font-family: 'Roboto';
+}
+
+/*h1{
     margin-left: 10%;
 }
 
@@ -73,7 +78,7 @@ legend{
 
 /* informations liée au message */
 
-#form_infos_message{
+/*#form_infos_message{
     height: 50%;
 }
 #form_infos_message{
@@ -91,7 +96,7 @@ legend{
     font-size: 18px;
     text-align: right ;
 
-}
+}*/
 
 /*#libelle_objet{
     display:inline-block;
@@ -102,7 +107,7 @@ legend{
     text-align: right;
 }*/
 
-#case_objet, #case_message{
+/*#case_objet, #case_message{
     display: inline-block; 
     width: 30%;
     border: 1px solid rgb(216, 211, 211); 
@@ -126,23 +131,29 @@ legend{
 
 #bouton{
     margin-left: 25%;
-}
+}*/
 
 @font-face {
     font-family: 'Lemon';
     src: url('font/Lemon Brush.otf');
 }
+
 .contener-main-menu {
     height: 60px;
 }
+
 body {
-    margin: 0;position: relative;
+    margin: 0;
+    position: relative;
 }
+
 footer {
     bottom: 0;
     width: 100%;
     background-color: #313131;
+    position: relative;
 }
+
 .mainmenu {
     position: relative;
     padding: 20px 20px 0 0;
@@ -150,6 +161,7 @@ footer {
     margin: auto;
     cursor: pointer;
 }
+
 .mainmenu .contener {
     cursor: pointer;
     width: auto;
@@ -157,6 +169,7 @@ footer {
     position: absolute;
     right: 0;
 }
+
 .mainmenu a {
     color: #dedede;
     text-decoration: none;
@@ -168,6 +181,7 @@ footer {
     position: relative;
     transition: color 0.1s;
 }
+
 .bckg-img {
     background-image: url(img/maxresdefault.jpg);
     height: 600px;
@@ -176,6 +190,7 @@ footer {
     background-color: black;
     position: relative;
 }
+
 .bckg-img::before {
     content: "";
     position: absolute;
@@ -185,6 +200,7 @@ footer {
     opacity: 0.4;
     pointer-events: none;
 }
+
 img.logo {
     position: absolute;
     left: 50%;
@@ -198,12 +214,14 @@ img.logo {
     border-radius: 500px;
     padding: 10px;
 }
+
 .mainmenu i.fas.fa-shopping-bag {
     display: inline-block;
     font-size: 24px;
     transform: translateY(-4px);
     position: relative;
 }
+
 .mainmenu.barre {
     position: fixed;
     right: 0;
@@ -217,20 +235,30 @@ img.logo {
     text-align: end;
     top: 0;
 }
-@keyframes showdown{
-    from{opacity:0;
-        transform: translateY(-50px);}
-    to{opacity:1;transform: translateY(0);}
+
+@keyframes showdown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
+
 .contenu {
     text-align: center;
 }
+
 .mainmenu a:hover {
     color: #ce905d;
 }
+
 .accueil .mainmenu .contener>a:nth-child(n) {
     border-right: solid 1px #949494;
 }
+
 i.godown {
     color: white;
     font-size: 50px;
@@ -243,11 +271,19 @@ i.godown {
     animation-iteration-count: infinite;
     transition: opacity 0.5s;
 }
-@keyframes animgodown{
-    0%{bottom: 0px;}
-    70%{bottom: 20px;}
-    100%{bottom: 0px;}
+
+@keyframes animgodown {
+    0% {
+        bottom: 0px;
+    }
+    70% {
+        bottom: 20px;
+    }
+    100% {
+        bottom: 0px;
+    }
 }
+
 img.imgcoffee {
     width: 250px;
     margin: auto;
@@ -256,33 +292,40 @@ img.imgcoffee {
     left: -35px;
     position: relative;
 }
+
 .mainmenu .titlemenu {
     display: inline-block;
     padding-left: 20px;
 }
+
 .mainmenu .titlemenu a {
     font-size: 60px;
     width: fit-content;
     transform: translateY(-10px);
     pointer-events: none;
 }
+
 .mainmenu.barre .titlemenu a {
     font-size: 55px;
 }
+
 /*.mainmenu.barre .contener a {
     font-size: 34px;
 }*/
+
 .mainmenu.barre .titlemenu {
     left: 70px;
     position: absolute;
     padding-left: none;
 }
+
 .mainmenu.barre .contener {
     cursor: pointer;
     width: auto;
     display: inline-block;
     position: relative;
 }
+
 .contenu h1 {
     font-family: "Lemon";
     font-size: 60px;
@@ -290,6 +333,7 @@ img.imgcoffee {
     color: #887268;
     margin-top: 0.3em;
 }
+
 p.textaccueil {
     font-size: 16px;
     font-family: 'Roboto';
@@ -297,30 +341,38 @@ p.textaccueil {
     max-width: 900px;
     margin: auto;
 }
+
 .template .mainmenu a {
     color: #565454;
 }
+
 .template .mainmenu .contener>a:nth-child(n) {
     border-right: solid 1px #565454;
 }
+
 .template .mainmenu.barre .contener a {
     font-size: 30px;
 }
+
 .mainmenu.barre .titlemenu a {
     font-size: 45px;
     padding-top: 3px;
 }
+
 .template .mainmenu.barre a {
     color: #dedede;
 }
+
 .template .mainmenu a:hover {
     color: #ce905d;
 }
+
 .titrepage {
     margin: 80px 0 0;
     text-align: center;
 }
-footer h1{
+
+footer h1 {
     font-family: "Lemon";
     font-weight: 100;
     font-size: 50px;
@@ -330,10 +382,12 @@ footer h1{
     margin: 0;
     padding: 30px 0 20px;
 }
+
 footer .cont-1 {
     text-align: center;
     padding: 15px 0;
 }
+
 footer .cont-1 a {
     font-size: 25px;
     color: #949494;
@@ -343,13 +397,16 @@ footer .cont-1 a {
     width: 35px;
     display: inline-block;
 }
+
 footer .cont-1 a:hover {
     color: #f1f1f1;
 }
+
 footer .cont-2 {
     text-align: center;
     padding: 10px 0 75px;
 }
+
 footer .cont-2 a {
     text-align: center;
     width: 100px;
@@ -357,6 +414,7 @@ footer .cont-2 a {
     color: #7d7d7d;
     font-family: sans-serif;
 }
+
 .credit {
     position: absolute;
     bottom: 0;
@@ -369,15 +427,18 @@ footer .cont-2 a {
     margin: 0;
     border-top: solid 1px #484848;
 }
-.popup-login.act .popform{
+
+.popup-login.act .popform {
     animation-name: popup;
     animation-duration: 0.3s;
     animation-play-state: running;
 }
+
 .popup-login.hind {
     display: none;
     animation-play-state: paused;
 }
+
 .popup-login {
     position: fixed;
     height: 100%;
@@ -386,7 +447,8 @@ footer .cont-2 a {
     z-index: 99;
     top: 0;
 }
-.popup-login .popform{
+
+.popup-login .popform {
     background-color: white;
     height: 300px;
     width: 450px;
@@ -397,16 +459,23 @@ footer .cont-2 a {
     box-shadow: 4px 4px 20px -6px #424242;
     text-align: center;
 }
-@keyframes popup{
-    from{transform: scale(0);}
-    to{transform: scale(1);}
+
+@keyframes popup {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
 }
+
 .popup-login .popform .close {
     text-align: right;
     top: -10px;
     right: -10px;
     position: relative;
 }
+
 .popup-login .popform .close i {
     font-size: 32px;
     background: #ad8266;
@@ -415,12 +484,14 @@ footer .cont-2 a {
     color: #ffffff;
     padding: 1px;
 }
+
 .popup-login h1.titrepopup {
     font-family: sans-serif;
     font-weight: 100;
     color: #888888;
     margin: 0px 0 1em;
 }
+
 .popup-login .saisie input {
     border: solid 1px #cacaca;
     height: 25px;
@@ -432,12 +503,11 @@ footer .cont-2 a {
     padding: 3px 10px;
 }
 
-.popup-login .saisie button{
-background: #dedad7;
-border: solid 1px #c5c5c5;
-height: 30px;
-padding: 2px 30px;
-border-radius: 30px;
-cursor: pointer;
-/*>>>>>>> 32bd2016ed087c47f10f2214af325419b05b820b*/
+.popup-login .saisie button {
+    background: #dedad7;
+    border: solid 1px #c5c5c5;
+    height: 30px;
+    padding: 2px 30px;
+    border-radius: 30px;
+    cursor: pointer;
 }
