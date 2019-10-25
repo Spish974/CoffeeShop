@@ -17,6 +17,15 @@ p {
     font-family: 'Roboto';
 }
 
+.contenu h1 {
+    font-family: "Lemon";
+    font-size: 65px;
+    font-weight: 100;
+    color: #887268;
+    margin-top: 0.3em;
+    margin-bottom: 20px;
+}
+
 /*h1{
     margin-left: 10%;
 }
@@ -171,7 +180,7 @@ footer {
 }
 
 .mainmenu a {
-    color: #dedede;
+    color: #f1f1f1;
     text-decoration: none;
     font-family: "Lemon";
     font-size: 35px;
@@ -201,6 +210,38 @@ footer {
     pointer-events: none;
 }
 
+.contenu .img-2-lunch {
+    background-image: url(img/d11344a8dd8f113cc5298ba5d9331fad.jpg);
+    width: 100%;
+    max-height: 60vh;
+    height: 40vw;
+    margin: 60px 0;
+    background-size: cover;
+    background-position-y: 66%;
+    position: relative;
+}
+
+.contenu .img-2-lunch:before {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+.img-2-lunch .acc-info2 {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.contenu .img-2-lunch .acc-info2 h1 {
+    color: white;
+    font-size: 70px;
+}
+
 img.logo {
     position: absolute;
     left: 50%;
@@ -228,12 +269,15 @@ img.logo {
     width: 100%;
     max-width: none;
     padding: 7px;
-    background-color: #464343;
+    background-color: rgba(86, 83, 77, 0.7);
     z-index: 1000;
     animation-name: showdown;
     animation-duration: 0.5s;
     text-align: end;
     top: 0;
+    backdrop-filter: blur(5px);
+    border-bottom: solid 1px #3a3a3a42;
+    box-shadow: -1px 3px 9px -5px #424242;
 }
 
 @keyframes showdown {
@@ -285,9 +329,9 @@ i.godown {
 }
 
 img.imgcoffee {
-    width: 250px;
+    width: 220px;
     margin: auto;
-    margin-top: 40px;
+    margin-top: 30px;
     display: block;
     left: -35px;
     position: relative;
@@ -326,16 +370,8 @@ img.imgcoffee {
     position: relative;
 }
 
-.contenu h1 {
-    font-family: "Lemon";
-    font-size: 60px;
-    font-weight: 100;
-    color: #887268;
-    margin-top: 0.3em;
-}
-
 p.textaccueil {
-    font-size: 16px;
+    font-size: 15px;
     font-family: 'Roboto';
     width: 80%;
     max-width: 900px;
@@ -356,7 +392,7 @@ p.textaccueil {
 
 .mainmenu.barre .titlemenu a {
     font-size: 45px;
-    padding-top: 3px;
+    padding-top: 6px;
 }
 
 .template .mainmenu.barre a {
@@ -449,8 +485,10 @@ footer .cont-2 a {
 }
 
 .popup-login .popform {
-    background-color: white;
-    width: 450px;
+    background-color: rgba(236, 236, 236, 0.7);
+    ;
+    width: fit-content;
+    display: grid;
     margin: auto;
     top: 50%;
     transform: translateY(-50%);
@@ -458,6 +496,7 @@ footer .cont-2 a {
     border-radius: 15px;
     box-shadow: 4px 4px 20px -6px #424242;
     text-align: center;
+    backdrop-filter: blur(3px);
 }
 
 @keyframes popup {
@@ -473,12 +512,12 @@ footer .cont-2 a {
     text-align: right;
     top: -10px;
     right: -10px;
-    position: relative;
+    position: absolute;
 }
 
 .popup-login .popform .close i {
     font-size: 32px;
-    background: #ad8266;
+    background: #517482;
     border-radius: 30px;
     cursor: pointer;
     color: #ffffff;
@@ -486,10 +525,18 @@ footer .cont-2 a {
 }
 
 .popup-login h1.titrepopup {
-    font-family: sans-serif;
-    font-weight: 100;
-    color: #888888;
-    margin: 0px 0 1em;
+    font-weight: 300;
+    color: #4a4a4a;
+    border-bottom: solid 1px #868686;
+    padding: 10px 0;
+    margin: 10px 0;
+    font-family: "Roboto";
+}
+
+.popup-login .saisie {
+    padding: 10px 25px;
+    width: 310px;
+    position: relative;
 }
 
 .popup-login .saisie input {
@@ -497,10 +544,15 @@ footer .cont-2 a {
     height: 25px;
     border-radius: 30px;
     display: block;
-    margin: auto;
-    margin-bottom: 1.5em;
     font-size: 15px;
-    padding: 3px 10px;
+    padding: 3px 16px;
+    background-color: #f9f9f9;
+    width: calc(100% - 32px);
+    outline: none;
+}
+
+.popup-login .saisie .champsaisie input {
+    margin-bottom: 10px;
 }
 
 .popup-login .saisie button {
@@ -510,4 +562,47 @@ footer .cont-2 a {
     padding: 2px 30px;
     border-radius: 30px;
     cursor: pointer;
+}
+
+.popup-login .saisie input.butt-log {
+    color: white;
+    padding: 10px;
+    height: auto;
+    border-radius: 8px;
+    border: none;
+    width: 60%;
+    min-width: 150px;
+    background-image: linear-gradient(to right top, #4a6183, #4c7293, #4f84a1, #5595ad, #5ea7b7);
+    cursor: pointer;
+    margin: 20px auto;
+}
+
+.popup-login .saisie input.butt-log:hover {
+    background-image: linear-gradient(to right top, #4a5e7c, #496a87, #497790, #4a8397, #4f8f9d);
+}
+
+.popup-login .saisie input.butt-log:active {
+    background-image: linear-gradient(to right top, #3b506f, #385c79, #366882, #367389, #3a7f8e);
+}
+.popup-login .saisie a.inscription {
+    margin-bottom: 20px;
+    display: block;
+}
+.list-article-unite img {
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+}
+.list-article-unite {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 10px 0px #ababab;
+    border-radius: 10px;
+}
+.list-article-unite p.tit-art-unit, .list-article-unite p.prix-art-unit {
+    margin: 5px 0;
+}
+.list-article-unite p.tit-art-unit {
+    font-weight: bold;
 }
