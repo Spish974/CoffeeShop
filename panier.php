@@ -22,31 +22,29 @@
         $bddPanier = new Base;
         $bddPanier->recupPanier();
         
-    }
-    $t = sizeof($_SESSION["Libellé"]);
-    if (isset($_SESSION["logconnect"])==true) {
-        
-        for($i = 0;$i < $t;$i++){
-            echo $_SESSION["Libellé"][$i];
-            echo (" : ");
-            echo $_SESSION["Prix"][$i];
-            echo ("€");
-            ?> <br/> <?php
-        }
     
-        /*foreach($_SESSION["Libellé"] as $lib){
-            echo $lib;
-            echo $_SESSION["Prix"];
-            
-            
-        }*/
+        $t = sizeof($_SESSION["Libellé"]);
+        if (isset($_SESSION["logconnect"])==true) {
+            for ($i = 0;$i < $t;$i++) {
+                echo $_SESSION["Libellé"][$i];
+                echo(" : ");
+                echo $_SESSION["Prix"][$i];
+                echo("€"); ?> <br/> <?php
+            }
+    
+            /*foreach($_SESSION["Libellé"] as $lib){
+                echo $lib;
+                echo $_SESSION["Prix"];
+
+
+            }*/
         //foreach ($_SESSION["Prix"] as $prix) {
             //$produit["Prix"] = $prix;
             
-            //echo $prix; 
+            //echo $prix;
         //}
         //$produit;
-        
+        }
     }
 
 ?>
