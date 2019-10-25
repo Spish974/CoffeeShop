@@ -16,7 +16,6 @@
 <div class='liste'>
 
 <?php
-    require('Classe/ConnectBDD.php');
     //session_start();
     if (isset($_SESSION["logconnect"])==true) {
         $bddPanier = new Base;
