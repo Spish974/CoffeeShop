@@ -1,7 +1,7 @@
 <?php
 class Base
 {
-    public $dns = "aze";
+    public $dns;
     private $pdo;
 
     public function __construct()
@@ -14,7 +14,7 @@ class Base
 
     public function TestClientConnexion($user,$pass)
     {
-        $stmt = $this->pdo->query("SELECT `Nom`,`Prenom` FROM `Client` WHERE `Username`='$user' AND `Password`='$pass'");
+        $stmt = $this->pdo->query("SELECT * FROM `Client` WHERE `Username`='$user' AND `Password`='$pass'");
         if ($stmt->rowCount() == 1) {
             $donnees = $stmt->fetch();
             if (isset($_SESSION["logconnect"])==false) {
@@ -33,40 +33,5 @@ class Base
         $_SESSION["logconnect"]=false;
         }
     }
-    public function ReturnClientNom()
-    {
-        $stmt = $this->pdo->query("SELECT `Nom`,`Prenom` FROM `Client` WHERE `Username`='rlucas' AND `Password`='m9741223'");
-        if ($stmt->rowCount() == 1) {
-            return "1";
-        } else {
-            return "0";
-        }
-    }
-    public function ReturnClientCle()
-    {
-        $stmt = $this->pdo->query("SELECT `Nom`,`Prenom` FROM `Client` WHERE `Username`='rlucas' AND `Password`='m9741223'");
-        if ($stmt->rowCount() == 1) {
-            return "1";
-        } else {
-            return "0";
-        }
-    }
-    public function ReturnClientPrenom()
-    {
-        $stmt = $this->pdo->query("SELECT `Nom`,`Prenom` FROM `Client` WHERE `Username`='rlucas' AND `Password`='m9741223'");
-        if ($stmt->rowCount() == 1) {
-            return "1";
-        } else {
-            return "0";
-        }
-    }
-    public function ReturnClientEmail()
-    {
-        $stmt = $this->pdo->query("SELECT `Nom`,`Prenom` FROM `Client` WHERE `Username`='rlucas' AND `Password`='m9741223'");
-        if ($stmt->rowCount() == 1) {
-            return "1";
-        } else {
-            return "0";
-        }
-    }
+
 }
