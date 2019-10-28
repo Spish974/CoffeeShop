@@ -15,11 +15,18 @@
 
     <div class='liste'>
         <?php
+        if(error_reporting(E_ERROR) > 1){
+            error_reporting(0);
+            
+        }
+        
+        //echo ini_set('error_reporting', E_ALL);
+        //echo error_reporting(0);
+        
         //session_start();
         if (isset($_SESSION["logconnect"])==true) {
             $bddPanier = new Base;
             $bddPanier->recupPanier();
-
             $t = sizeof($_SESSION["Libellé"]);
             if (isset($_SESSION["logconnect"])==true) {
                 for ($i = 0;$i < $t;$i++) {
@@ -27,7 +34,7 @@
                 }
             }
         }else{
-            echo ("Connectez-vous avec l'onglet \"Compte\" pour voir votre panier !"); 
+            echo ("Connectez-vous avec l'onglet \"Login\" pour voir votre panier !"); 
         }
 
         ?>
