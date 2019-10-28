@@ -15,55 +15,69 @@ $pdo = new PDO($dsn, 'rlucas974', 'm9741223');
 
 <div>
     <div class="container">
-        <form method="GET" action="" onsubmit="<?php 
-            if(isset($_GET['modif_nom'])){
-                
-            }
-        
-        ?>">
+        <form method="GET" action="" onsubmit="<?php
+                                                if (isset($_GET['modif_ref'])) {
+                                                    $sql_modif="UPDATE `Produit` SET `ID_Produit`=".$_GET['modif_ref'];
+                                                    $pdo->prepare($sql_modif);
+                                                    $pdo->exec($sql_modif);
+                                                }
+                                                elseif(isset($_GET['modif_libellé'])){
+                                                    $sql_modif="UPDATE `Produit` SET `ID_Produit`=".$_GET['modif_libellé'];
+                                                    $pdo->prepare($sql_modif);
+                                                    $pdo->exec($sql_modif);
+                                                }
+                                                elseif(isset($_GET['modif_categorie'])){
+                                                    $sql_modif="UPDATE `Produit` SET `ID_Produit`=".$_GET['modif_catégorie'];
+                                                    $pdo->prepare($sql_modif);
+                                                    $pdo->exec($sql_modif);
+                                                }
+                                                elseif(isset($_GET['modif_prix'])){
+                                                    $sql_modif="UPDATE `Produit` SET `ID_Produit`=".$_GET['modif_prix'];
+                                                    $pdo->prepare($sql_modif);
+                                                    $pdo->exec($sql_modif);
+                                                }
+                                                elseif(isset($_GET['modif_description'])){
+                                                    $sql_modif="UPDATE `Produit` SET `ID_Produit`=".$_GET['modif_description'];
+                                                    $pdo->prepare($sql_modif);
+                                                    $pdo->exec($sql_modif);
+                                                }
+
+
+                                                ?>">
 
             <div class="row">
                 <div class="col-lg-12">
-                    
-                      <label for="modif_ref">Nouvelle référence: </label>
-                      <input type="text" class="form-control" name="modif_ref" id="" aria-describedby="helpId" placeholder="">
-                    
+
+                    <label for="modif_ref">Nouvelle référence: </label>
+                    <input type="text" class="form-control" name="modif_ref" id="" aria-describedby="helpId" placeholder="">
+
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-lg-12">
-                    
-                      <label for="modif_nom">Nouveau Nom: </label>
-                      <input type="text" class="form-control" name="modif_nom" id="" aria-describedby="helpId" placeholder="">
-                    
+
+                    <label for="modif_libellé">Nouveau libellé: </label>
+                    <input type="text" class="form-control" name="modif_libellé" id="" aria-describedby="helpId" placeholder="">
+
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-lg-12">
-                    
-                      <label for="modif_libellé">Nouveau libellé: </label>
-                      <input type="text" class="form-control" name="modif_libellé" id="" aria-describedby="helpId" placeholder="">
-                    
+
+                    <label for="modif_categorie">Nouvelle catégorie: </label>
+                    <input type="text" class="form-control" name="modif_categorie" id="" aria-describedby="helpId" placeholder="">
+
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-lg-12">
-                    
-                      <label for="modif_categorie">Nouvelle catégorie: </label>
-                      <input type="text" class="form-control" name="modif_categorie" id="" aria-describedby="helpId" placeholder="">
-                    
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-lg-12">
-                    
-                      <label for="modif_prix">Nouveau Prix: </label>
-                      <input type="text" class="form-control" name="modif_prix" id="" aria-describedby="helpId" placeholder="">
-                    
+                    <label for="modif_prix">Nouveau Prix: </label>
+                    <input type="text" class="form-control" name="modif_prix" id="" aria-describedby="helpId" placeholder="">
+
                 </div>
             </div>
 
