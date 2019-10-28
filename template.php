@@ -7,7 +7,7 @@
     if (isset($_GET['page'])) {
         $page = $_GET['page'];
     }
-    if ($page == "menu" || $page == "panier" || $page == "compte" || $page == "admin") {
+    if ($page == "menu" || $page == "panier" || $page == "compte" || $page == "admin" || $page == "AfficheClient" || $page == "AfficheAjouteProduit") {
         echo "<title>" . $page . "</title>";
     } else {
         header('Location: index.php');

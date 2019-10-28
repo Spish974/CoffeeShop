@@ -21,9 +21,11 @@
     $pdo = new PDO($dsn, 'rlucas974', 'm9741223');
 
     $stmt = $pdo->query("SELECT `ID_Produit`,`Libellé`,Prix FROM `Produit`");
+
+    
     ?>
 
-    <table class="table">
+    <table class="table-bordered">
         <thead>
             <tr>
                 <th>Référence</th>
@@ -50,7 +52,11 @@
 
 
     <div class="container">
-        <form action="" method="GET" onsubmit="<?php $transfert = $pdo->query("INSERT INTO `Produit`(`ID_Produit`, `Libellé`, Catégorie, `Prix`, `Description`) VALUES ('$_GET[Ajout_ID_Produit]','$_GET[Ajout_Libellé]','$_GET[Ajout_Catégorie]','$_GET[Ajout_Prix]','$_GET[Ajout_Description]')") ?>" >
+        <form action="" method="GET" onsubmit="<?php
+         if(isset($_GET['Ajout_ID_Produit'])){
+         $transfert = $pdo->query("INSERT INTO `Produit`(`ID_Produit`, `Libellé`, Catégorie, `Prix`, `Description`) VALUES ('$_GET[Ajout_ID_Produit]','$_GET[Ajout_Libellé]','$_GET[Ajout_Catégorie]','$_GET[Ajout_Prix]','$_GET[Ajout_Description]')");
+        }
+         ?>" >
             <fieldset class="form-group row">
                 <legend class="col-form-legend col-sm-1-12">Ajouter un produit</legend>
                 <div class="col-sm-1-12">

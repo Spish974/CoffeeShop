@@ -11,7 +11,7 @@
 
             <div class="offset-lg-2 col-lg-5">
                 <!--<a class="btn btn-info btn-lg" href="template.php?page=AfficheClient" type="button">Afficher client</a>-->
-                <a href="template.php?page=AfficheAjouteClient"><button type="button" class="btn btn-primary btn-lg btn-block "> Produit </button></a>
+                <a href="template.php?page=AfficheAjouteProduit"><button type="button" class="btn btn-primary btn-lg btn-block "> Produit </button></a>
             </div>
 
         </div>
