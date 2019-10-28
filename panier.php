@@ -12,24 +12,32 @@
 <button id='creerP' onClick="creerProduit('test', 4, 6)"> Creer produit </button>
 <button id='ajouter' onClick="augmenteQuantite(produittest)"> + </button>
 <button id='retirer' onClick="reduireQuantite(produittest)"> - </button>
-
+<a href="deconnexion.php">deconnexion</a>
     <div class='liste'>
         <?php
-        //session_start();
-        if (isset($_SESSION["logconnect"])==true) {
-            $bddPanier = new Base;
-            $bddPanier->recupPanier();
-
-            $t = sizeof($_SESSION["Libellé"]);
+        if(error_reporting(E_ERROR)){
+            error_reporting(0);            
+        }
+        /*if(isset($bddPanier) == true){
+            echo 'var exist'.isset($bddPanier);
+            //session_start();*/
             if (isset($_SESSION["logconnect"])==true) {
+                $bddPanier = new Base;
+            $bddPanier->recupPanier();
+                $t = sizeof($_SESSION["Libellé"]);
                 for ($i = 0;$i < $t;$i++) {
                     echo $_SESSION["Libellé"][$i]." : ".$_SESSION["Prix"][$i]."€ <br/>";
                 }
+            }else{
+                echo $_SESSION["logconnect"].'<br>';
+                //echo 'var exist'.isset($bddPanier).'<br>';
+                echo "Connectez-vous avec l'onglet \"Login\" pour voir votre panier !".'<br>'; 
             }
-        }else{
-            echo ("Connectez-vous avec l'onglet \"Compte\" pour voir votre panier !"); 
-        }
-
+        /*}else if (isset($bddPanier) == false) {
+            echo 'var not exist'.isset($bddPanier);
+            /*$bddPanier = new Base;
+            $bddPanier->recupPanier();
+        }*/
         ?>
 
     </div>

@@ -6,7 +6,7 @@
     if (isset($_GET['page'])) {
         $page = $_GET['page'];
     }
-    if ($page == "menu" || $page == "panier" || $page == "compte" || $page == "admin") {
+    if ($page == "menu" || $page == "panier" || $page == "compte" || $page == "admin" || $page == "AfficheClient" || $page == "CRUDProduit" || $page == "AjouteProduit" ) {
         echo "<title>" . $page . "</title>";
     } else {
         if(isset($_GET['redirection'])==false){
@@ -14,6 +14,7 @@
             exit();
         }
     }
+
     ?>
     <?php require("Template/head.php"); ?>
 
@@ -21,7 +22,11 @@
     <?php require('Template/mainmenu.php'); ?>
     <?php
     if ($page != "1") {
-        echo "<title>" . $page . "</title><div class='titrepage'><h1>" . $page . "</h1></div><div class='contenu'>";
+        echo "<title>" . $page . "</title>";
+        if ($page != "AfficheClient" && $page != "CRUDProduit") {
+            echo "<div class='titrepage'><h1>" . $page . "</h1></div>";
+            }
+        echo "<div class='contenu'>";
         require($page . '.php');
         echo "</div>";
     } else {
