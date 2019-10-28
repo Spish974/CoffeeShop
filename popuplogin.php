@@ -16,6 +16,7 @@ if (isset($_SESSION["logconnect"]) == false) {
                     <div class="champsaisie">
                         <input type="text" name="usrname" id="email" size="30" required="" placeholder="Identifiant">
                         <input type="password" name="password" placeholder="Mot de passe">
+                        <p class="errorpasslogin">Identifiant ou mot de passe incorrect.</p>
                     </div>
                     <input type="submit" value="Connecter" class="butt-log">
                 </form>

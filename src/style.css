@@ -146,6 +146,10 @@ legend{
     font-family: 'Lemon';
     src: url('font/Lemon Brush.otf');
 }
+@font-face{
+    font-family: "TradeMark";
+    src: url('font/TradeMark Demo.otf');
+}
 
 .contener-main-menu {
     height: 60px;
@@ -165,7 +169,7 @@ footer {
 
 .mainmenu {
     position: relative;
-    padding: 20px 20px 0 0;
+    padding: 10px 20px 0 0;
     max-width: 1210px;
     margin: auto;
     cursor: pointer;
@@ -268,7 +272,7 @@ img.logo {
     right: 0;
     width: 100%;
     max-width: none;
-    padding: 7px;
+    padding: 0 7px;
     background-color: rgba(86, 83, 77, 0.7);
     z-index: 1000;
     animation-name: showdown;
@@ -349,10 +353,6 @@ img.imgcoffee {
     pointer-events: none;
 }
 
-.mainmenu.barre .titlemenu a {
-    font-size: 55px;
-}
-
 /*.mainmenu.barre .contener a {
     font-size: 34px;
 }*/
@@ -400,7 +400,7 @@ p.textaccueil {
 }
 
 .template .mainmenu a:hover {
-    color: #ce905d;
+    color: #f3c279;
 }
 
 .titrepage {
@@ -507,14 +507,16 @@ footer .cont-2 a {
         transform: translateY(-50%) scale(1);
     }
 }
-
 .popup-login .popform .close {
     text-align: right;
     top: -10px;
     right: -10px;
     position: absolute;
+    opacity: 0.6;
 }
-
+.popup-login .popform .close:hover{
+    opacity: 1;
+}
 .popup-login .popform .close i {
     font-size: 32px;
     background: #517482;
@@ -605,4 +607,15 @@ footer .cont-2 a {
 }
 .list-article-unite p.tit-art-unit {
     font-weight: bold;
+}
+.contenu .post-article {
+    margin: 40px 10%;
+}
+.popup-login .saisie p.errorpasslogin {
+    color: red;
+    font-size: 14px;
+    text-align: initial;
+}
+.popup-login.act .saisie p.errorpasslogin {
+    display:none;
 }
