@@ -629,10 +629,6 @@ span#verifusererror, span#verifmailerror {
     font-weight: bold;
 }
 
-.contenu .post-article {
-    margin: 40px 10%;
-}
-
 .popup-login .saisie p.errorpasslogin, .popup-login .saisie p.erroradressemail {
     color: red;
     font-size: 12px;
@@ -666,9 +662,13 @@ span#verifusererror, span#verifmailerror {
 .compt-page a.buttdeco {
     bottom: 0;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -10px);
     position: absolute;
     margin: auto;
+    padding: 5px 20px;
+    border-radius: 5px;
+    color: white;
+    background-image: linear-gradient(to right top, #b72e07, #c3320f, #cf3617, #db3a1e, #e73e25);
 }
 .compt-page .menu-compte {
     background-color: #e4e4e4;
@@ -684,4 +684,8 @@ span#verifusererror, span#verifmailerror {
 }
 .compt-page .menu-compte span:hover {
     background-color: #f3f3f3;
+}
+.contenu {
+    min-height: 40vh;
+    margin: 3em 5%;
 }
