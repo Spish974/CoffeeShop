@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <?php require("head.php");?>
+    <?php require("Template/head.php");?>
 
 <body class="accueil" style="background-color: #f3f2f1">
     <div class="bckg-img">
-        <?php require('mainmenu.php'); ?>
+        <?php require('Template/mainmenu.php'); ?>
         <img class="logo" src="src/img/logo.png">
         <i class="fas fa-chevron-down godown"></i>
     </div>
@@ -18,7 +18,7 @@
         </div>
         <!---->
     </div>
-    <?php require('footer.php'); ?>
+    <?php require('Template/footer.php'); ?>
 </body>
 
 </html>

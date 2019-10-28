@@ -146,7 +146,8 @@ legend{
     font-family: 'Lemon';
     src: url('font/Lemon Brush.otf');
 }
-@font-face{
+
+@font-face {
     font-family: "TradeMark";
     src: url('font/TradeMark Demo.otf');
 }
@@ -165,11 +166,12 @@ footer {
     width: 100%;
     background-color: #313131;
     position: relative;
+    margin-top: 50px;
 }
 
 .mainmenu {
     position: relative;
-    padding: 10px 20px 0 0;
+    padding: 10px 5% 0;
     max-width: 1210px;
     margin: auto;
     cursor: pointer;
@@ -188,7 +190,7 @@ footer {
     text-decoration: none;
     font-family: "Lemon";
     font-size: 35px;
-    width: 130px;
+    width: 120px;
     display: inline-block;
     text-align: center;
     position: relative;
@@ -262,7 +264,7 @@ img.logo {
 
 .mainmenu i.fas.fa-shopping-bag {
     display: inline-block;
-    font-size: 24px;
+    font-size: 20px;
     transform: translateY(-4px);
     position: relative;
 }
@@ -273,7 +275,7 @@ img.logo {
     width: 100%;
     max-width: none;
     padding: 0 7px;
-    background-color: rgba(86, 83, 77, 0.7);
+    background-color: rgba(86, 83, 77, 0.8);
     z-index: 1000;
     animation-name: showdown;
     animation-duration: 0.5s;
@@ -343,7 +345,6 @@ img.imgcoffee {
 
 .mainmenu .titlemenu {
     display: inline-block;
-    padding-left: 20px;
 }
 
 .mainmenu .titlemenu a {
@@ -507,6 +508,7 @@ footer .cont-2 a {
         transform: translateY(-50%) scale(1);
     }
 }
+
 .popup-login .popform .close {
     text-align: right;
     top: -10px;
@@ -514,9 +516,11 @@ footer .cont-2 a {
     position: absolute;
     opacity: 0.6;
 }
-.popup-login .popform .close:hover{
+
+.popup-login .popform .close:hover {
     opacity: 1;
 }
+
 .popup-login .popform .close i {
     font-size: 32px;
     background: #517482;
@@ -546,7 +550,7 @@ footer .cont-2 a {
     height: 25px;
     border-radius: 30px;
     display: block;
-    font-size: 15px;
+    font-size: 14px;
     padding: 3px 16px;
     background-color: #f9f9f9;
     width: calc(100% - 32px);
@@ -566,7 +570,7 @@ footer .cont-2 a {
     cursor: pointer;
 }
 
-.popup-login .saisie input.butt-log {
+.popup-login .saisie input.buttlr {
     color: white;
     padding: 10px;
     height: auto;
@@ -576,25 +580,39 @@ footer .cont-2 a {
     min-width: 150px;
     background-image: linear-gradient(to right top, #4a6183, #4c7293, #4f84a1, #5595ad, #5ea7b7);
     cursor: pointer;
-    margin: 20px auto;
+    margin: 20px auto 10px;
 }
 
-.popup-login .saisie input.butt-log:hover {
+.popup-login .saisie input.buttlr:hover {
     background-image: linear-gradient(to right top, #4a5e7c, #496a87, #497790, #4a8397, #4f8f9d);
 }
 
-.popup-login .saisie input.butt-log:active {
+.popup-login .saisie input.buttlr:active {
     background-image: linear-gradient(to right top, #3b506f, #385c79, #366882, #367389, #3a7f8e);
 }
-.popup-login .saisie a.inscription {
-    margin-bottom: 20px;
-    display: block;
+
+.popup-login .saisie a.inscription, .popup-login .saisie a.connection {
+    margin-bottom: 10px;
+    cursor: pointer;
+    padding: 5px;
+    display: inline-block;
+    color: hsl(210, 33%, 30%);
 }
+
+span#verifusererror, span#verifmailerror {
+    color: #e03333;
+    font-size: 12px;
+    display: flex;
+    margin: -10px auto 10px;
+    width: fit-content;
+}
+
 .list-article-unite img {
     height: 150px;
     width: 150px;
     object-fit: cover;
 }
+
 .list-article-unite {
     display: inline-block;
     margin: 10px;
@@ -602,20 +620,68 @@ footer .cont-2 a {
     box-shadow: 0px 0px 10px 0px #ababab;
     border-radius: 10px;
 }
+
 .list-article-unite p.tit-art-unit, .list-article-unite p.prix-art-unit {
     margin: 5px 0;
 }
+
 .list-article-unite p.tit-art-unit {
     font-weight: bold;
 }
+
 .contenu .post-article {
     margin: 40px 10%;
 }
-.popup-login .saisie p.errorpasslogin {
+
+.popup-login .saisie p.errorpasslogin, .popup-login .saisie p.erroradressemail {
     color: red;
-    font-size: 14px;
+    font-size: 12px;
     text-align: initial;
+    margin-left: 15px;
 }
+
 .popup-login.act .saisie p.errorpasslogin {
-    display:none;
+    display: none;
+}
+
+.enre-reus {
+    text-align: center;
+    margin: 50px 10%;
+}
+
+.enre-reus p {
+    margin-top: 50px;
+}
+
+.compt-page {
+    margin: 40px 10%;
+    display: block;
+    height: 300px;
+    box-shadow: -1px 0px 10px -4px black;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.compt-page a.buttdeco {
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    margin: auto;
+}
+.compt-page .menu-compte {
+    background-color: #e4e4e4;
+}
+.compt-page .menu-compte span {
+    width: 32%;
+    display: inline-block;
+    padding: 10px 0;
+    border-bottom: solid 1px darkgrey;
+    cursor: pointer;
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+.compt-page .menu-compte span:hover {
+    background-color: #f3f3f3;
 }

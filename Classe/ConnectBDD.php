@@ -29,7 +29,8 @@ class Base
 
     public function TestClientConnexion($user, $pass)
     {
-        $stmt = $this->pdo->query("SELECT * FROM `Client` WHERE `Username`='$user' AND `Password`='$pass'");
+        $_COOKIE["user"] = $user;
+        $stmt = $this->pdo->query("SELECT * FROM `Client` WHERE (`Username`='$user' OR Email = '$user') AND `Password`='$pass'");
         if ($stmt->rowCount() == 1) {
             $donnees = $stmt->fetch();
             if (isset($_SESSION["logconnect"]) == false) {
@@ -47,6 +48,7 @@ class Base
             return "0";
         }
     }
+
     public function Deconnexion()
     {
         if (isset($_SESSION["logconnect"])) {
@@ -69,18 +71,8 @@ class Base
             echo "qsd";
         }
     }
-    public function test($var = "")
+    public function ajoutuser($user,$mail,$pwd)
     {
-        if($var==""){
-            $var="1";
-        }else{
-            $var="Nom REGEXP '(".$var."[a-z]*)'";
-        }
-        $stmt = $this->pdo->query("SELECT * FROM `Client` WHERE $var");
-        if ($stmt->rowCount() > 0) {
-            while ($donnees = $stmt->fetch()) { 
-                echo $donnees["Nom"]."<br>";
-            }
-        }
+        $this->pdo->query("INSERT INTO `Client` (`ID_Client`, `Nom`, `Prenom`, `Telephone`, `Index_Adresse`, `Username`, `Email`, `Password`, `Statut`) VALUES (NULL, NULL, NULL, NULL, '0', '$user','$mail','$pwd', 'Client');");
     }
 }

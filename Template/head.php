@@ -1,7 +1,7 @@
 <head>
     <?php
     $verificationURL = substr($_SERVER["REQUEST_URI"], 1, strpos($_SERVER["REQUEST_URI"], ".php") - 1);
-    if ($verificationURL != "index" && $verificationURL != "template") {
+    if ($verificationURL == "index" || $verificationURL == "template" || isset($_GET['redirection'])) {}else{
         header('Location: index.php');
         exit();
     }

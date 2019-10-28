@@ -1,10 +1,19 @@
 <?php
 session_start();
+require('Classe/ConnectBDD.php');
+$bdd = new Base;
 if (isset($_SESSION["logconnect"])==false){
-    require('Classe/ConnectBDD.php');
-    if(isset($_POST["action"]) && isset($_POST["usrname"]) && isset($_POST["password"])){
-        $bdd = new Base;
-        $bdd->TestClientConnexion($_POST["usrname"],$_POST["password"]);
+    if(isset($_POST["action"])){
+        if($_POST["action"]=="log"){
+            if(isset($_POST["identifiant"]) && isset($_POST["password"])){
+                $bdd->TestClientConnexion($_POST["identifiant"],$_POST["password"]);
+            }
+        }
+        if($_POST["action"]=="reg"){
+            if(isset($_POST["identifiant"]) && isset($_POST["password"])){
+                $bdd->TestClientConnexion($_POST["identifiant"],$_POST["password"]);
+            }
+        }
     }
 }
 ?>
@@ -26,4 +35,4 @@ if (isset($_SESSION["logconnect"])==false){
         </div>
     </div>
 </div>
-        <?php require('popuplogin.php'); ?>
+        <?php require('popup/popupModule.php'); ?>

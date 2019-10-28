@@ -1,22 +1,9 @@
-<!DOCTYPE html>
-<html>
-
-<form action="" method="POST" style="border:solid 1px black;padding:10px;margin:20px">
-    <div>
-        <p>user</p>
-        <input type="text" name="usrname">
+<div class="compt-page">
+    <div class="menu-compte">
+        <span>Information</span>
+        <span>Historique des commande</span>
+        <span>Point de fidélité</span>
     </div>
-    <div>
-        <p>mot de passe</p>
-        <input type="password" name="password">
-    </div>
-    <input type="submit" value="Login">
-</form>
-
-
-<br><br>
-<div>
-    <a href="deconnexion.php">deconnexion</a>
+<br>
+<a class="buttdeco" href="deconnexion.php">Déconnexion</a>
 </div>
-
-</html>
