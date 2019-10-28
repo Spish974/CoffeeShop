@@ -7,12 +7,13 @@
     if (isset($_GET['page'])) {
         $page = $_GET['page'];
     }
-    if ($page == "menu" || $page == "panier" || $page == "compte" || $page == "admin") {
+    if ($page == "menu" || $page == "panier" || $page == "compte" || $page == "admin" || $page == "AfficheClient" || $page == "CRUDProduit" || $page == "AjouteProduit" ) {
         echo "<title>" . $page . "</title>";
     } else {
         header('Location: index.php');
         exit();
     }
+
     ?>
     <?php require("head.php"); ?>
 </head>
@@ -22,7 +23,9 @@
     <?php
     if ($page != "1") {
         echo "<title>" . $page . "</title>";
+        if ($page != "AfficheClient" && $page != "CRUDProduit") {
         echo "<div class='titrepage'><h1>" . $page . "</h1></div>";
+        }
         echo "<div class='contenu' style='margin-bottom:50vh;'>";
         require($page . '.php');
         echo "</div>";
