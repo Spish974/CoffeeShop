@@ -12,17 +12,17 @@ class Base
     public function __toString()
     { }
 
-    public function recupPanier(){
+    public function recupPanier()
+    {
         $pan = $this->pdo->query("SELECT `Libellé`,`Prix` FROM `Produit` ");
         if ($pan->rowCount() > 0) {
             $_SESSION["Libellé"] = array();
             $_SESSION["Prix"] = array();
 
-            while($donnees = $pan->fetch()){
+            while ($donnees = $pan->fetch()) {
 
                 $_SESSION["Libellé"][] = $donnees["Libellé"];
                 $_SESSION["Prix"][] = $donnees["Prix"];
-               
             }
         }
     }
@@ -59,9 +59,9 @@ class Base
             $stmt = $this->pdo->query("SELECT * FROM `Produit` WHERE 1");
             if ($stmt->rowCount() > 0) {
                 while ($donnees = $stmt->fetch()) {
-                    echo "<div class='list-article-unite'><img alt src='src/img/".$donnees["Image"]."'>
-                    <p class='tit-art-unit'>".$donnees["Libellé"]."</p>
-                    <p class='prix-art-unit'>".$donnees["Prix"]."€</p>
+                    echo "<div class='list-article-unite'><img alt src='src/img/" . $donnees["Image"] . "'>
+                    <p class='tit-art-unit'>" . $donnees["Libellé"] . "</p>
+                    <p class='prix-art-unit'>" . $donnees["Prix"] . "€</p>
                     </div>";
                 }
             }
@@ -69,5 +69,18 @@ class Base
             echo "qsd";
         }
     }
+    public function test($var = "")
+    {
+        if($var==""){
+            $var="1";
+        }else{
+            $var="Nom REGEXP '(".$var."[a-z]*)'";
+        }
+        $stmt = $this->pdo->query("SELECT * FROM `Client` WHERE $var");
+        if ($stmt->rowCount() > 0) {
+            while ($donnees = $stmt->fetch()) { 
+                echo $donnees["Nom"]."<br>";
+            }
+        }
+    }
 }
-?>
