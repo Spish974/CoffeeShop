@@ -14,22 +14,28 @@ class Base
 
     public function recupPanier()
     {
-        $pan = $this->pdo->query("SELECT `Libellé`,`Prix` FROM `Produit` ");
-        if ($pan->rowCount() > 0) {
+        $listpan = $this->pdo->query("SELECT `Libellé`,`Prix` FROM `Produit` ");
+        if ($listpan->rowCount() > 0) {
             $_SESSION["Libellé"] = array();
             $_SESSION["Prix"] = array();
 
-            while ($donnees = $pan->fetch()) {
-
+            while ($donnees = $listpan->fetch()) {
                 $_SESSION["Libellé"][] = $donnees["Libellé"];
                 $_SESSION["Prix"][] = $donnees["Prix"];
             }
         }
     }
+    public function createPanier()
+    {/*
+        $listuser = $this->pdo->query("SELECT `Nom` FROM `Client` WHERE `Username`='$user' AND `Password`='$pass'");
+        $_SESSION["nomsession"] = $donnees['Nom'];
+        $pan = $this->pdo->query("CREATE TABLE `Panier` ( `user` $_SESSION["nomsession"] , `idProduit` INT NOT NULL , `prixProduit` INT NOT NULL , `Somme` INT NOT NULL ) ENGINE = InnoDB;");
+    */
+    }
 
     public function TestClientConnexion($user, $pass)
     {
-        $stmt = $this->pdo->query("SELECT * FROM `Client` WHERE `Username`='$user' AND `Password`='$pass'");
+        $stmt = $this->pdo->query("SELECT `Nom``Prenom``Telephone``Index_Adresse``Username``Email``Statut` FROM `Client` WHERE `Username`='$user' AND `Password`='$pass'");
         if ($stmt->rowCount() == 1) {
             $donnees = $stmt->fetch();
             if (isset($_SESSION["logconnect"]) == false) {
