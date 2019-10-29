@@ -2,6 +2,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="src/style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <title>Affichage base client <br /></title>
@@ -41,8 +42,10 @@ $stmt = $pdo->query("SELECT `ID_Produit`,`Libellé`,Prix FROM `Produit`");
                         <td scope="row"> <?php echo ($donnee["ID_Produit"]) ?> </td>
                         <td> <?php echo ($donnee["Libellé"]) ?> </td>
                         <td> <?php echo ($donnee["Prix"]) ?> </td>
-                        <td> <?php echo "<a class='btn btn-primary' href='ModifProduit.php?id=" . $donnee['ID_Produit'] . "'> Modifier </a>"; ?>
-                            <?php echo "<a class='btn btn-primary' href='SupprimeProduit.php?id_produit=" . $donnee['ID_Produit'] . "'> Supprimer </a>"; ?>
+                        <td> 
+                        <?php echo "<a id='btn_voir' class='btn btn-primary' href='VoirProduit.php?id_produit=" . $donnee['ID_Produit'] . "'> Voir </a>"; ?>  
+                        <?php echo "<a id='btn_modif' class='btn btn-primary' href='ModifProduit.php?id_produit=" . $donnee['ID_Produit'] . "'> Modifier </a>"; ?>
+                        <?php echo "<a id='btn_supprimer' class='btn btn-primary' href='SupprimeProduit.php?id_produit=" . $donnee['ID_Produit'] . "'> Supprimer </a>"; ?>
                         </td>
                     </tr>
                 </tbody>
