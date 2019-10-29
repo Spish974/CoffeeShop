@@ -6,6 +6,18 @@
     <script type="text/javascript" src="src/scriptPanier.js"></script>
 
 </head>
+<body>
+<?php
+    if (isset($_SESSION["logconnect"])==true) {
+        if($_SESSION["nomsession"] == null){
+            echo "<div class='propriétaire'><h1>" /*. $page . */ . " de " . $_SESSION["Usernamesession"]."</h1></div>";
+        }else {
+        echo "<div class='propriétaire'><h1>" /*. $page . */ . " de " . $_SESSION["nomsession"] . " " . $_SESSION["prenomsession"]."</h1></div>";
+        }
+    }else {
+
+    }
+?>
 <!-- window.location.href='template.php?page=panier'-->
 
 <button id='bouton' onClick="window.location.href='src/FuncPanier.php'"> Bouton resumé </button>
@@ -22,12 +34,22 @@
             echo 'var exist'.isset($bddPanier);
             //session_start();*/
             if (isset($_SESSION["logconnect"])==true) {
-                $bddPanier = new Base;
-            $bddPanier->recupPanier();
-                $t = sizeof($_SESSION["Libellé"]);
-                for ($i = 0;$i < $t;$i++) {
-                    echo $_SESSION["Libellé"][$i]." : ".$_SESSION["Prix"][$i]."€ <br/>";
+                if (isset($bddPanier) == false) {
+                    $bddPanier = new Base;
+                    $bddPanier->recupPanier();
+                    $t = sizeof($_SESSION["Libellé"]);
+                    for ($i = 0;$i < $t;$i++) {
+                        echo $_SESSION["Libellé"][$i]." : ".$_SESSION["Prix"][$i]."€ <br/>";
+                    }
+                }else {
+                    $bddPanier->recupPanier();
+                    $t = sizeof($_SESSION["Libellé"]);
+                    for ($i = 0;$i < $t;$i++) {
+                        echo $_SESSION["Libellé"][$i]." : ".$_SESSION["Prix"][$i]."€ <br/>";
+                    }
                 }
+                
+                
             }else{
                 echo $_SESSION["logconnect"].'<br>';
                 //echo 'var exist'.isset($bddPanier).'<br>';
@@ -45,5 +67,5 @@
     <div class='resume'>
 
     </div>
-
+</body>
 </html>
