@@ -9,6 +9,23 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="container">
+        <form>
+            <fieldset class="form-group row">
+                <legend class="col-form-legend col-sm-1-12">Informations générales</legend>
+                <div class="col-sm-1-12">
+                      <label for=""></label>
+                      <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                      <small id="helpId" class="form-text text-muted">Help text</small>
+                </div>
+            </fieldset>
+            <div class="form-group row">
+                <div class="offset-sm-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">Action</button>
+                </div>
+            </div>
+        </form>
+    </div>
     
     
 </body>
