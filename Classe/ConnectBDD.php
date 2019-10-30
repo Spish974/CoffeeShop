@@ -27,7 +27,8 @@ class Base
             $_SESSION["Usernamesession"] = $donnees['Username'];
             $_SESSION["Emailsession"] = $donnees['Email'];
             $_SESSION["Statutsession"] = $donnees['Statut'];
-            $_SESSION["indexPansession"] = $donnees['Index_Panier'];
+            //$_SESSION["indexPansession"] = $donnees['Index_Panier'];
+            $_SESSION["indexClientsession"] = $donnees['ID_Client'];
             return "1";
         } else {
             return "0";
@@ -99,14 +100,22 @@ class Base
             }
         }
     }
-    /*public function createPanier()
+    public function createPanier()
     {
-        if(id panier dans client null){
-            $_SESSIONidproduitclient = $_SESSIONidprosuitpanier et $_SESSIONidclientpanier = $_SESSIONidclientsclient 
-        }
+        $sessClient = $_SESSION["indexClientsession"];
+        $panExist = $this->pdo->query("SELECT * FROM `Panier` WHERE Index_Client = '$sessClient' ");
         
+        if ($panExist->rowCount() > 0) {
+            
+            $donnees = $panExist->fetch();
+            echo "existe".$donnees["produit"];
+        }else {
+            echo "existe pas";
+            $this->pdo->query("INSERT INTO `Panier` (`ID_Panier`, `produit`, `Index_Client`) VALUES (NULL, 'test', '$sessClient')");
+        }      
     }
-    public function ajoutPanier()
+
+    /*public function ajoutPanier()
     {
         produitpanier = idproduitproduit where $sessionidclientpanier ==$_SESSIONidclientclient
         
