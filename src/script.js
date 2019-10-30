@@ -54,7 +54,9 @@ $(document).ready(function () {
 
     function clearPan(){
         localStorage.removeItem("article")
-        notifPan();
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", "Classe/TranscriptionLocalPhp.php?art=", false ); // false for synchronous request
+        xmlHttp.send(null);
         document.location.href="/template.php?page=panier";
     }
     function localsArtPan($this){
@@ -71,16 +73,36 @@ $(document).ready(function () {
             notifPan();
         }
     }
+    function occurrences(string, subString, allowOverlapping) {
+
+        string += "";
+        subString += "";
+        if (subString.length <= 0) return (string.length + 1);
+    
+        var n = 0,
+            pos = 0,
+            step = allowOverlapping ? 1 : subString.length;
+    
+        while (true) {
+            pos = string.indexOf(subString, pos);
+            if (pos >= 0) {
+                ++n;
+                pos += step;
+            } else break;
+        }
+        return n;
+    }
     function notifPan(){
         $lsg= localStorage.getItem("article")!=null ? localStorage.getItem("article"):"";
 
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open("GET", "Classe/TranscriptionLocalPhp.php?art="+$lsg, true ); // false for synchronous request
         xmlHttp.send(null);
-
+        $nboccurence=occurrences($lsg,"b");
         $countart=0;
-        for(i=0;i<$lsg.search("b");i++)
+        for(i=0;i<$nboccurence;i++)
         {
+            
             $countart += parseInt($lsg.substring($lsg.indexOf("b")+1,$lsg.indexOf("e")));
             $lsg=$lsg.substring($lsg.indexOf("e")+1);
         }

@@ -27,6 +27,8 @@ class Base
             $_SESSION["Usernamesession"] = $donnees['Username'];
             $_SESSION["Emailsession"] = $donnees['Email'];
             $_SESSION["Statutsession"] = $donnees['Statut'];
+            //$_SESSION["indexPansession"] = $donnees['Index_Panier'];
+            $_SESSION["indexClientsession"] = $donnees['ID_Client'];
             return "1";
         } else {
             return "0";
@@ -53,7 +55,7 @@ class Base
                     </div>";
                     $countart+=1;
                 }
-                echo "<div style='margin-top: 30px;'><p>".$countart." choix</p>
+                echo "<div style='margin-top: 30px;'><p class='nb-choice'>".$countart." choix</p>
                 </div>";
             }
         } else {
@@ -73,41 +75,40 @@ class Base
     public function stringToPanier(){
         $chaine=$this->TranscriptLocalphp();
         $pos=0;
-        for($i=0;$i<(substr_count($chaine,"A"));$i++){
-            $where=substr($chaine,stripos($chaine,"A",$pos)+1,stripos($chaine,"b",$pos)-stripos($chaine,"A",$pos)-1);
+        $tot=0;
+        for ($i=0;$i<(substr_count($chaine, "A"));$i++) {
+            $where=substr($chaine, stripos($chaine, "A", $pos)+1, stripos($chaine, "b", $pos)-stripos($chaine, "A", $pos)-1);
+            $quant=substr($chaine, stripos($chaine, "b", $pos)+1, stripos($chaine, "e", $pos)-stripos($chaine, "b", $pos)-1);
             $stmt=$this->pdo->query("SELECT * FROM `Produit` WHERE `ID_Produit`='$where'");
             if ($stmt->rowCount() == 1) {
                 $donnees = $stmt->fetch();
-                echo "<div>".$donnees["Libellé"]." ".
-                substr($chaine,stripos($chaine,"b",$pos)+1,stripos($chaine,"e",$pos)-stripos($chaine,"b",$pos)-1)."</div>";
+                $tot = $tot + ($donnees["Prix"] * $quant);
+                echo "<div>" . $quant . " " . $donnees["Libellé"] . " = " . ($donnees["Prix"] * $quant) . "€ </div>";
             }
-            $pos=stripos($chaine,"e",$pos)+1;
+            $pos=stripos($chaine, "e", $pos)+1;
         }
-    }
-
-    public function recupPanier()
-    {
-        $listpan = $this->pdo->query("SELECT `Libellé`,`Prix` FROM `Produit` ");
-        if ($listpan->rowCount() > 0) {
-            $_SESSION["Libellé"] = array();
-            $_SESSION["Prix"] = array();
-
-            while ($donnees = $listpan->fetch()) {
-                $_SESSION["Libellé"][] = $donnees["Libellé"];
-                $_SESSION["Prix"][] = $donnees["Prix"];
-            }
-        }
-    }
-    /*public function createPanier()
-    {
-        if(id panier dans client null){
-            $_SESSIONidproduitclient = $_SESSIONidprosuitpanier et $_SESSIONidclientpanier = $_SESSIONidclientsclient 
+        if ($tot == 0) {
+            echo "Votre panier est vide ! ";
+            ?> <button id='menu' onClick=""> <a href="template.php?page=menu"> Menu </a> </button> <?php
+        } else {
+            echo "<br> Total à régler : " . $tot . "Eur <br>";
+            ?> <input type="button" id="videPanButt" value="Vider le panier"> <?php
         }
         
     }
-    public function ajoutPanier()
+
+    public function createPanier()
     {
-        produitpanier = idproduitproduit where $sessionidclientpanier ==$_SESSIONidclientclient
+        $sessClient = $_SESSION["indexClientsession"];
+        $panExist = $this->pdo->query("SELECT * FROM `Panier` WHERE Index_Client = '$sessClient' ");
         
-    }*/
+        if ($panExist->rowCount() > 0) {
+            
+            $donnees = $panExist->fetch();
+            //echo "existe".$donnees["produit"];
+        }else {
+            //echo "existe pas";
+            $this->pdo->query("INSERT INTO `Panier` (`ID_Panier`, `produit`, `Index_Client`) VALUES (NULL, '', '$sessClient')");
+        }      
+    }
 }
