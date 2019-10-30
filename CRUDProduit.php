@@ -43,9 +43,9 @@ $stmt = $pdo->query("SELECT `ID_Produit`,`Libellé`,Prix FROM `Produit`");
                         <td> <?php echo ($donnee["Libellé"]) ?> </td>
                         <td> <?php echo ($donnee["Prix"]) ?> </td>
                         <td> 
-                        <?php echo "<a id='btn_voir' class='btn btn-primary' href='VoirProduit.php?id_produit=" . $donnee['ID_Produit'] . "'> Voir </a>"; ?>  
-                        <?php echo "<a id='btn_modif' class='btn btn-primary' href='ModifProduit.php?id_produit=" . $donnee['ID_Produit'] . "'> Modifier </a>"; ?>
-                        <?php echo "<a id='btn_supprimer' class='btn btn-primary' href='SupprimeProduit.php?id_produit=" . $donnee['ID_Produit'] . "'> Supprimer </a>"; ?>
+                        <?php echo "<a id='btn_voir' class='btn btn-primary' href='template.php?page=VoirProduit&id_produit=" . $donnee['ID_Produit'] . "'> Voir </a>"; ?>  
+                        <?php echo "<a id='btn_modif' class='btn btn-primary' href='template.php?page=ModifProduit&id_produit=" . $donnee['ID_Produit'] . "'> Modifier </a>"; ?>
+                        <?php echo "<a id='btn_supprimer' class='btn btn-primary' href='template.php?page=SupprimeProduit&id_produit=" . $donnee['ID_Produit'] . "'> Supprimer </a>"; ?>
                         </td>
                     </tr>
                 </tbody>
