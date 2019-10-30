@@ -29,10 +29,24 @@ class Base
             $_SESSION["Statutsession"] = $donnees['Statut'];
             //$_SESSION["indexPansession"] = $donnees['Index_Panier'];
             $_SESSION["indexClientsession"] = $donnees['ID_Client'];
+            $idclient = $donnees['ID_Client'];
+            $panExist = $this->pdo->query("SELECT * FROM `Panier` WHERE Index_Client = '$idclient' ");
+            if ($panExist->rowCount() == 1) {
+                $listpan = $panExist->fetch();
+                $_SESSION["article"] = $listpan['produit'];
+            }
+
             return "1";
         } else {
             return "0";
         }
+
+        /*if($donnees['produit'] != null){
+            
+            $article = $_SESSION['produit']; 
+        }else{
+            $pdo->query("UPDATE `Panier` SET `produit`= '$article' WHERE `Index_Client` = '$ID_client'");
+        }*/
     }
 
     public function Deconnexion()
@@ -80,6 +94,7 @@ class Base
             $where=substr($chaine, stripos($chaine, "A", $pos)+1, stripos($chaine, "b", $pos)-stripos($chaine, "A", $pos)-1);
             $quant=substr($chaine, stripos($chaine, "b", $pos)+1, stripos($chaine, "e", $pos)-stripos($chaine, "b", $pos)-1);
             $stmt=$this->pdo->query("SELECT * FROM `Produit` WHERE `ID_Produit`='$where'");
+
             if ($stmt->rowCount() == 1) {
                 $donnees = $stmt->fetch();
                 $tot = $tot + ($donnees["Prix"] * $quant);
@@ -105,10 +120,15 @@ class Base
         if ($panExist->rowCount() > 0) {
             
             $donnees = $panExist->fetch();
+            
             //echo "existe".$donnees["produit"];
         }else {
             //echo "existe pas";
-            $this->pdo->query("INSERT INTO `Panier` (`ID_Panier`, `produit`, `Index_Client`) VALUES (NULL, '', '$sessClient')");
+            //$idProduit = $idProduit + ";" + $_SESSION['ID_Produit'];
+            //$this->pdo->query("INSERT INTO `Panier` (`produit`) VALUES ('$idProduit')");
+            
+            //$this->pdo->query("INSERT INTO `Panier` (`ID_Panier`, `produit`, `Index_Client`) VALUES (NULL, '', '$sessClient')");
+            //echo $ID_Produit;
         }      
     }
 }

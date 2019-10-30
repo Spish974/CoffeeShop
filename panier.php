@@ -19,7 +19,12 @@
         $bdd->createPanier();
         ?> 
         <button id='deconnexion' onClick=""> <a href="template.php?page=reglement"> Valider votre commande </a> </button>
-        <button id='deconnexion' onClick=""> <a href="deconnexion.php"> Deconnexion </a> </button> 
+        <button id='deconnexion' onClick="clearstock()"> <a href="deconnexion.php"> Deconnexion </a> </button> 
+        <script type="text/javascript"> 
+            function clearstock(){
+                localStorage.clear();
+            }
+        </script>
         <?php
     }else {
         echo "Connectez-vous avec l'onglet \"Login\" pour voir votre panier !" . '<br>';
