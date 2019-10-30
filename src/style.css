@@ -30,16 +30,19 @@ p {
 #btn_voir{
     background-color: black;
     color: white;
+    border: black;
 }
 
 #btn_modif{
     background-color: orange;
     color: white;
+    border: orange;
 }
 
 #btn_supprimer{
     background-color: red;
     color: white;
+    border: red;
 }
 
 /*h1{

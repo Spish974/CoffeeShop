@@ -8,7 +8,7 @@
 
             <div class="offset-lg-3 col-lg-4">
                 <!--<a class="btn btn-info btn-lg" href="template.php?page=AfficheClient" type="button">Afficher client</a>-->
-                <a href="template.php?page=CRUDProduit"><button type="button" class="btn btn-primary btn-lg btn-block "> Produit </button></a>
+                <a href="template.php?page=CRUDProduit"><button type="button" class="btn btn-success btn-lg btn-block "> Produit </button></a>
             </div>
         </div>
     </div>
