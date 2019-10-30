@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <title>Coffee Shop</title>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="icon" type="image/png" href="src/img/icon.png" />
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="src/script.js"> </script>

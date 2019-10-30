@@ -44,12 +44,17 @@ class Base
         if ($filter == "") {
             $stmt = $this->pdo->query("SELECT * FROM `Produit` WHERE 1");
             if ($stmt->rowCount() > 0) {
+                $countart=0;
                 while ($donnees = $stmt->fetch()) {
                     echo "<div class='list-article-unite'><img alt src='src/img/" . $donnees["Image"] . "'>
                     <p class='tit-art-unit'>" . $donnees["Libellé"] . "</p>
                     <p class='prix-art-unit'>" . $donnees["Prix"] . "€</p>
+                    <span class='ajouter-panier' idarticle='".$donnees["ID_Produit"]."'>Ajouter</span>
                     </div>";
+                    $countart+=1;
                 }
+                echo "<div style='margin-top: 30px;'><p>".$countart." choix</p>
+                </div>";
             }
         } else {
             echo "qsd";
@@ -60,6 +65,26 @@ class Base
     {
         $this->pdo->query("INSERT INTO `Client` (`ID_Client`, `Nom`, `Prenom`, `Telephone`, `Index_Adresse`, `Username`, `Email`, `Password`, `Statut`) VALUES (NULL, NULL, NULL, NULL, '0', '$user','$mail','$pwd', 'Client');");
     }
+    public function TranscriptLocalphp(){
+        if(isset($_SESSION["article"])){
+            return $_SESSION["article"];
+        }
+    }
+    public function stringToPanier(){
+        $chaine=$this->TranscriptLocalphp();
+        $pos=0;
+        for($i=0;$i<(substr_count($chaine,"A"));$i++){
+            $where=substr($chaine,stripos($chaine,"A",$pos)+1,stripos($chaine,"b",$pos)-stripos($chaine,"A",$pos)-1);
+            $stmt=$this->pdo->query("SELECT * FROM `Produit` WHERE `ID_Produit`='$where'");
+            if ($stmt->rowCount() == 1) {
+                $donnees = $stmt->fetch();
+                echo "<div>".$donnees["Libellé"]." ".
+                substr($chaine,stripos($chaine,"b",$pos)+1,stripos($chaine,"e",$pos)-stripos($chaine,"b",$pos)-1)."</div>";
+            }
+            $pos=stripos($chaine,"e",$pos)+1;
+        }
+    }
+
     public function recupPanier()
     {
         $listpan = $this->pdo->query("SELECT `Libellé`,`Prix` FROM `Produit` ");
