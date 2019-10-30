@@ -27,6 +27,7 @@ class Base
             $_SESSION["Usernamesession"] = $donnees['Username'];
             $_SESSION["Emailsession"] = $donnees['Email'];
             $_SESSION["Statutsession"] = $donnees['Statut'];
+            $_SESSION["indexPansession"] = $donnees['Index_Panier'];
             return "1";
         } else {
             return "0";
@@ -53,7 +54,7 @@ class Base
                     </div>";
                     $countart+=1;
                 }
-                echo "<div style='margin-top: 30px;'><p>".$countart." choix</p>
+                echo "<div style='margin-top: 30px;'><p class='nb-choice'>".$countart." choix</p>
                 </div>";
             }
         } else {

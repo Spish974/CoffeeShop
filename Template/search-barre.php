@@ -3,7 +3,7 @@
     var xhttp = new XMLHttpRequest();
 
     function verif(value) {
-        if (value.length >= 3) {
+        if (value.length >= 2) {
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     retour = this.responseText;
