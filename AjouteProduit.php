@@ -1,40 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <title>Document</title>
-</head>
-
-<body>
+<div>
     <div class="container">
         <?php
-        $dsn = 'mysql:host=mysql-rlucas974.alwaysdata.net;dbname=rlucas974_coffeeshop;port=3306;charset=utf8';
+        include_once("Classe/ProcedureCRUD.php");
+        $pdo = connectBdd();
 
-        $pdo = new PDO($dsn, 'rlucas974', 'm9741223');
 
-        $stmt = $pdo->query("SELECT `ID_Produit`,`Libellé`,Prix FROM `Produit`"); ?>
-        <form action="AjouteProduit.php" method="GET" onsubmit="<?php
-                                                                if (isset($_GET['Ajout_ID_Produit'])) {
-                                                                    $transfert = $pdo->query("INSERT INTO `Produit`(`ID_Produit`, `Libellé`, Catégorie, `Prix`, `Description`) VALUES ('$_GET[Ajout_ID_Produit]','$_GET[Ajout_Libellé]','$_GET[Ajout_Catégorie]','$_GET[Ajout_Prix]','$_GET[Ajout_Description]')");
-                                                                    require("CRUDProduit.php");
-                                                                    exit();
-                                                                }
-                                                                
-                                                                ?>">
+        if (isset($_GET['Ajout_Libellé'])) {
+            $transfert = $pdo->query("INSERT INTO `Produit`(`ID_Produit`, `Libellé`, Catégorie, `Prix`, `Description`) VALUES (Null,'$_GET[Ajout_Libellé]','$_GET[Ajout_Catégorie]','$_GET[Ajout_Prix]','$_GET[Ajout_Description]')");
+            require("CRUDProduit.php");
+            exit();
+        }
+        //$stmt = $pdo->query("SELECT `ID_Produit`,`Libellé`,Prix FROM `Produit`"); ?>
+        <form action="template.php" method="GET">
             <fieldset class="form-group row">
                 <legend class="col-form-legend col-sm-1-12">Ajouter un produit</legend>
-                <div class="col-sm-1-12">
+
+                <input type="hidden" name="page" value="AjouteProduit" />
+                <!--<div class="col-sm-1-12">
                     <div class="form-group">
                         <label for="Ajout_ID_Produit">ID Produit: </label>
                         <input type="text" name="Ajout_ID_Produit" id="" class="form-control" placeholder="0123456789..." aria-describedby="helpId">
                         <small id="helpId" class="text-muted"></small>
                         <br />
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                         <label for="Ajout_Libellé">Libellé: </label>
@@ -72,6 +60,4 @@
         </form>
     </div>
 
-</body>
-
-</html>
+</div>
