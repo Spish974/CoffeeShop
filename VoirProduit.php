@@ -1,15 +1,15 @@
-<head>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-</head>
 
 <div>
   <?php
-  $dsn = 'mysql:host=mysql-rlucas974.alwaysdata.net;dbname=rlucas974_coffeeshop;port=3306;charset=utf8';
+  /*$dsn = 'mysql:host=mysql-rlucas974.alwaysdata.net;dbname=rlucas974_coffeeshop;port=3306;charset=utf8';
 
-  $pdo = new PDO($dsn, 'rlucas974', 'm9741223');
+  $pdo = new PDO($dsn, 'rlucas974', 'm9741223');*/
+  require('Classe/ProcedureCRUD.php');
+  
+  $pdo = connectBdd();
 
-  $stmt = $pdo->query("SELECT `ID_Produit`,`Libellé`,Prix, Catégorie,Description FROM `Produit` WHERE ID_PRODUIT=" . $_GET['id_produit']);
+  $stmt =  voirLigne($pdo,"Produit","ID_Produit",$_GET['id_produit']);
 
   $donnee = $stmt->fetch();
   ?>
@@ -47,7 +47,7 @@
   <br />
   <div class="row">
     <div class="col-lg-6">
-      <a name="" id="" class="btn btn-primary" href="CRUDProduit.php" role="button">retour</a>
+      <a name="" id="" class="btn btn-primary" href="template.php?page=CRUDProduit" role="button">retour</a>
     </div>
   </div>
 </div>

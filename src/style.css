@@ -38,15 +38,19 @@ h1 {
 
 }
 #btn_voir{
-    background-color: black;
+    background-color: green;
     color: white;
-    border: black;
+    border: green;
 }
 
 #btn_modif{
     background-color: orange;
     color: white;
     border: orange;
+}
+#btn_ajout_produit{
+    color:white;
+    
 }
 
 #btn_supprimer{
