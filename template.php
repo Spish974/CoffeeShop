@@ -6,7 +6,7 @@
     if (isset($_GET['page'])) {
         $page = $_GET['page'];
     }
-    if ($page == "menu" || $page == "panier" || $page == "compte" || $page == "admin" || $page == "AfficheClient" || $page == "CRUDProduit" || $page == "AjouteProduit" || $page == "VoirProduit"  ) {
+    if ($page == "menu" || $page == "panier" || $page == "reglement" || $page == "compte" || $page == "admin" || $page == "AfficheClient" || $page == "CRUDProduit" || $page == "AjouteProduit" || $page == "VoirProduit"  ) {
         echo "<title>" . $page . "</title>";
     } else {
         if(isset($_GET['redirection'])==false){

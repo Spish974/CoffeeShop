@@ -16,7 +16,10 @@
 
     if (isset($_SESSION["logconnect"]) == true) {
         $bdd->createPanier();
-        ?> <button id='deconnexion' onClick=""> <a href="deconnexion.php"> Deconnexion </a> </button> <?php
+        ?> 
+        <button id='deconnexion' onClick=""> <a href="window.location='template.php?page=reglement'"> Valider votre commande </a> </button>
+        <button id='deconnexion' onClick=""> <a href="deconnexion.php"> Deconnexion </a> </button> 
+        <?php
     }else {
         echo "Connectez-vous avec l'onglet \"Login\" pour voir votre panier !" . '<br>';
     }
