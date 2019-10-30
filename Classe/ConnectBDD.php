@@ -12,27 +12,6 @@ class Base
     public function __toString()
     { }
 
-    public function recupPanier()
-    {
-        $listpan = $this->pdo->query("SELECT `Libellé`,`Prix` FROM `Produit` ");
-        if ($listpan->rowCount() > 0) {
-            $_SESSION["Libellé"] = array();
-            $_SESSION["Prix"] = array();
-
-            while ($donnees = $listpan->fetch()) {
-                $_SESSION["Libellé"][] = $donnees["Libellé"];
-                $_SESSION["Prix"][] = $donnees["Prix"];
-            }
-        }
-    }
-    public function createPanier()
-    {/*
-        $listuser = $this->pdo->query("SELECT `Nom` FROM `Client` WHERE `Username`='$user' AND `Password`='$pass'");
-        $_SESSION["nomsession"] = $donnees['Nom'];
-        $pan = $this->pdo->query("CREATE TABLE `Panier` ( `user` $_SESSION["nomsession"] , `idProduit` INT NOT NULL , `prixProduit` INT NOT NULL , `Somme` INT NOT NULL ) ENGINE = InnoDB;");
-    */
-    }
-
     public function TestClientConnexion($user, $pass)
     {
         $stmt = $this->pdo->query("SELECT * FROM `Client` WHERE (`Username`='$user' OR Email = '$user') AND `Password`='$pass'");
@@ -81,6 +60,7 @@ class Base
             echo "qsd";
         }
     }
+
     public function ajoutuser($user,$mail,$pwd)
     {
         $this->pdo->query("INSERT INTO `Client` (`ID_Client`, `Nom`, `Prenom`, `Telephone`, `Index_Adresse`, `Username`, `Email`, `Password`, `Statut`) VALUES (NULL, NULL, NULL, NULL, '0', '$user','$mail','$pwd', 'Client');");
@@ -104,4 +84,30 @@ class Base
             $pos=stripos($chaine,"e",$pos)+1;
         }
     }
+
+    public function recupPanier()
+    {
+        $listpan = $this->pdo->query("SELECT `Libellé`,`Prix` FROM `Produit` ");
+        if ($listpan->rowCount() > 0) {
+            $_SESSION["Libellé"] = array();
+            $_SESSION["Prix"] = array();
+
+            while ($donnees = $listpan->fetch()) {
+                $_SESSION["Libellé"][] = $donnees["Libellé"];
+                $_SESSION["Prix"][] = $donnees["Prix"];
+            }
+        }
+    }
+    /*public function createPanier()
+    {
+        if(id panier dans client null){
+            $_SESSIONidproduitclient = $_SESSIONidprosuitpanier et $_SESSIONidclientpanier = $_SESSIONidclientsclient 
+        }
+        
+    }
+    public function ajoutPanier()
+    {
+        produitpanier = idproduitproduit where $sessionidclientpanier ==$_SESSIONidclientclient
+        
+    }*/
 }
