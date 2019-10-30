@@ -8,7 +8,7 @@
         <img class="logo" src="src/img/logo.png">
         <i class="fas fa-chevron-down godown"></i>
     </div>
-    <div class="contenu" style="margin: 0 5%;margin-bottom: 50vh;">
+    <div class="contenu" style="margin: 0 5%;margin-bottom: 5em;">
         <!--CODE APRES LA BALISE-->
         <img src="src/img/CapLatteLockup-1254x884-IMG.png" class="imgcoffee" alt="coffee">
         <h1>Une envie de gourmandise?</h1>

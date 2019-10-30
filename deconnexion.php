@@ -1,3 +1,6 @@
+<script>
+    localStorage.removeItem('article');
+</script>
 <?php
 session_start();
 session_destroy();

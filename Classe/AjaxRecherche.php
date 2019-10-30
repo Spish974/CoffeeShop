@@ -3,12 +3,16 @@ $dns = 'mysql:host=mysql-rlucas974.alwaysdata.net;dbname=rlucas974_coffeeshop;po
 $pdo = new PDO($dns, 'rlucas974', 'm9741223');
 if (isset($_GET["valuKey"])) {
     $var = $_GET["valuKey"];
-    $var = "Nom REGEXP '" . $var . "'";
-    $stmt = $pdo->query("SELECT * FROM `Client` WHERE $var");
+    $var = "Libellé REGEXP '" . $var . "'";
+    $stmt = $pdo->query("SELECT * FROM `Produit` WHERE $var");
     if ($stmt->rowCount() > 0) {
-        while ($donnees = $stmt->fetch()) {
-            echo $donnees["Nom"] . "<br>";
+        for($i=0;$i<5;$i++){
+            if($donnees = $stmt->fetch()) {
+                $s='prendreSug("'.$donnees['Libellé'].'")';
+                echo "<p onclick='".$s."' class='sug-trouv'>".$donnees["Libellé"] . "</p>";
+            }
         }
+        
     } else {
         echo "aucune recherche";
     }

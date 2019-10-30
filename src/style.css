@@ -590,7 +590,8 @@ span#verifusererror, span#verifmailerror {
 .compt-page {
     margin: 40px 10%;
     display: block;
-    height: 300px;
+    min-height: 100px;
+    padding-bottom: 3em;
     box-shadow: -1px 0px 10px -4px black;
     border-radius: 20px;
     overflow: hidden;
@@ -632,7 +633,9 @@ span#verifusererror, span#verifmailerror {
 
 .contenu {
     min-height: 40vh;
-    margin: 3em 5%;
+    margin: 0 5% 3em;
+    border-radius: 10px;
+    padding-bottom: 10px;
 }
 
 .cat-img-acc {
@@ -806,4 +809,109 @@ span.ajouter-panier {
 
 span.ajouter-panier:hover {
     background: #ceb081;
+}
+.barre-recherche-cont{
+    display: inline-block;
+    position: relative;
+    width: 220px;
+}
+.barre-recherche-cont #filtersearch{
+    border-radius: 20px;
+    border: solid 1px #e4e4e4;
+    padding: 3px 10px;
+    width: -webkit-fill-available;
+    outline: none;
+    background-color: #f9f9f9;
+}
+.barre-recherche-cont .sugestion{
+    border: solid 1px #afafaf;
+    border-top: none;
+    position: absolute;
+    width: -webkit-fill-available;
+    margin: 0 10px;
+    background-color: white;
+}
+.barre-recherche-cont .sugestion span#retour {
+    text-align: left;
+    color: #060606;
+    display: flex;
+    cursor: pointer;
+}
+.barre-recherche-cont .sugestion p.sug-trouv {
+    margin: 0;
+    width: 100%;
+    padding: 2px 10px;
+}
+.option-recherche {
+    margin: 20px 0;
+    padding: 50px 0 20px;
+    border-bottom: solid 1px grey;
+    background-color: grey;
+}
+select#catg-select {
+    border-radius: 20px;
+    padding: 3px;
+    outline: none;
+}
+.option-recherche .butt-search {
+    background-color: #deb456;
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.list-cat {
+    display: inline-block;
+}
+.compt-page tr td:nth-child(1) {
+    font-weight: 700;
+    text-align: center;
+}
+.compt-page tr td:nth-child(2) {
+    text-align: initial;
+    margin-left: 15px;
+    display: block;
+    padding: 0 5px;
+    border-bottom: solid 1px #cecece;
+}
+.element-pan tbody {
+    display: grid;
+}
+.element-pan .tabLibelle div,.tabQuantite div,.tabQuantPrix div{
+    text-align: left;
+    margin: 5px 20px;
+}
+.element-pan tr {
+    vertical-align: top;
+    width: 100%;
+    border-bottom: solid 1px #b7b7b7;
+}
+.element-pan table {
+    box-shadow: 0px 0px 7px 0px #ababab;
+    padding: 7px;
+    display: inline-block;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.tabimg img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.tabimg div{
+    height: 90px;
+    width: 90px;
+}
+input#videPanButt {
+    background-color: #f17259;
+    color: white;
+    font-family: "Roboto";
+    border: none;
+    border-radius: 6px;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+.element-pan {
+    min-height: 200px;
 }

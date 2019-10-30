@@ -27,7 +27,6 @@ class Base
             $_SESSION["Usernamesession"] = $donnees['Username'];
             $_SESSION["Emailsession"] = $donnees['Email'];
             $_SESSION["Statutsession"] = $donnees['Statut'];
-            $_SESSION["indexPansession"] = $donnees['Index_Panier'];
             return "1";
         } else {
             return "0";
@@ -45,16 +44,16 @@ class Base
         if ($filter == "") {
             $stmt = $this->pdo->query("SELECT * FROM `Produit` WHERE 1");
             if ($stmt->rowCount() > 0) {
-                $countart=0;
+                $countart = 0;
                 while ($donnees = $stmt->fetch()) {
                     echo "<div class='list-article-unite'><img alt src='src/img/" . $donnees["Image"] . "'>
                     <p class='tit-art-unit'>" . $donnees["Libellé"] . "</p>
                     <p class='prix-art-unit'>" . $donnees["Prix"] . "€</p>
-                    <span class='ajouter-panier' idarticle='".$donnees["ID_Produit"]."'>Ajouter</span>
+                    <span class='ajouter-panier' idarticle='" . $donnees["ID_Produit"] . "'>Ajouter</span>
                     </div>";
-                    $countart+=1;
+                    $countart += 1;
                 }
-                echo "<div style='margin-top: 30px;'><p class='nb-choice'>".$countart." choix</p>
+                echo "<div style='margin-top: 30px;'><p class='nb-choice'>" . $countart . " choix</p>
                 </div>";
             }
         } else {
@@ -62,27 +61,42 @@ class Base
         }
     }
 
-    public function ajoutuser($user,$mail,$pwd)
+    public function ajoutuser($user, $mail, $pwd)
     {
         $this->pdo->query("INSERT INTO `Client` (`ID_Client`, `Nom`, `Prenom`, `Telephone`, `Index_Adresse`, `Username`, `Email`, `Password`, `Statut`) VALUES (NULL, NULL, NULL, NULL, '0', '$user','$mail','$pwd', 'Client');");
     }
-    public function TranscriptLocalphp(){
-        if(isset($_SESSION["article"])){
+    public function TranscriptLocalphp()
+    {
+        if (isset($_SESSION["article"])) {
             return $_SESSION["article"];
         }
     }
-    public function stringToPanier(){
-        $chaine=$this->TranscriptLocalphp();
-        $pos=0;
-        for($i=0;$i<(substr_count($chaine,"A"));$i++){
-            $where=substr($chaine,stripos($chaine,"A",$pos)+1,stripos($chaine,"b",$pos)-stripos($chaine,"A",$pos)-1);
-            $stmt=$this->pdo->query("SELECT * FROM `Produit` WHERE `ID_Produit`='$where'");
-            if ($stmt->rowCount() == 1) {
-                $donnees = $stmt->fetch();
-                echo "<div>".$donnees["Libellé"]." ".
-                substr($chaine,stripos($chaine,"b",$pos)+1,stripos($chaine,"e",$pos)-stripos($chaine,"b",$pos)-1)."</div>";
+    public function stringToPanier()
+    {
+        $chaine = $this->TranscriptLocalphp();
+        $pos = 0;
+        $nbarticle = substr_count($chaine, "A");
+        if ($nbarticle > 0) {
+            echo '<table>';
+            for ($i = 0; $i < $nbarticle; $i++) {
+                echo "<tr>";
+                $where = substr($chaine, stripos($chaine, "A", $pos) + 1, stripos($chaine, "b", $pos) - stripos($chaine, "A", $pos) - 1);
+                $quantite = substr($chaine, stripos($chaine, "b", $pos) + 1, stripos($chaine, "e", $pos) - stripos($chaine, "b", $pos) - 1);
+                $stmt = $this->pdo->query("SELECT * FROM `Produit` WHERE `ID_Produit`='$where'");
+                if ($stmt->rowCount() == 1) {
+                    $donnees = $stmt->fetch();
+                    echo "<td class='tabimg'><div><img alt='' src='src/img/".$donnees["Image"]."'></div></td>
+                    <td class='tabLibelle'><div><b>" . $donnees["Libellé"] . "</b><br>".number_format($donnees["Prix"], 2, ',', ' ')."€</div></td>
+                    <td class='tabQuantite'><div>" .$quantite. "</div></td>";
+                    $totalQuantPrix=($donnees["Prix"]*$quantite);
+                    echo "<td class='tabQuantPrix'><div><b>" .number_format($totalQuantPrix, 2, ',', ' ')."€</b></div></td>";
+                }
+                $pos = stripos($chaine, "e", $pos) + 1;
+                echo "</tr>";
             }
-            $pos=stripos($chaine,"e",$pos)+1;
+            echo "</table>";
+        }else{
+            echo "<div><p>Votre panier est vide</p></div>";
         }
     }
 
@@ -99,16 +113,16 @@ class Base
             }
         }
     }
-    /*public function createPanier()
+    public function ListCat()
     {
-        if(id panier dans client null){
-            $_SESSIONidproduitclient = $_SESSIONidprosuitpanier et $_SESSIONidclientpanier = $_SESSIONidclientsclient 
+        $stmt = $this->pdo->query("SELECT `Catégorie` FROM `Produit` GROUP BY `Catégorie`");
+        if ($stmt->rowCount() > 0) {
+            echo '<select name="catg" id="catg-select">
+            <option value="">--Catégorie--</option>';
+            while ($donnees = $stmt->fetch()) {
+                echo '<option value="' . $donnees["Catégorie"] . '">' . $donnees["Catégorie"] . '</option>';
+            }
+            echo '</select>';
         }
-        
     }
-    public function ajoutPanier()
-    {
-        produitpanier = idproduitproduit where $sessionidclientpanier ==$_SESSIONidclientclient
-        
-    }*/
 }

@@ -13,6 +13,10 @@ $(document).ready(function () {
         }
     })
 
+    $(".post-article").on("click", function(){
+        $(".barre-recherche-cont .sugestion").css("display","none");
+    })
+
     $("#compte a.login").on("click", function () {
         $(".popup-login").removeClass("hind");
     })
@@ -50,6 +54,7 @@ $(document).ready(function () {
         }
     })
     $('#videPanButt').on("click", function(){clearPan();});
+
     $(".list-article-unite span.ajouter-panier").on("click", function(){localsArtPan($(this));});
 
     function clearPan(){
@@ -59,6 +64,7 @@ $(document).ready(function () {
         xmlHttp.send(null);
         document.location.href="/template.php?page=panier";
     }
+
     function localsArtPan($this){
         $lsg= localStorage.getItem("article")!=null ? localStorage.getItem("article"):"";
         $artAjout=$this.attr("idarticle");
@@ -73,6 +79,7 @@ $(document).ready(function () {
             notifPan();
         }
     }
+
     function occurrences(string, subString, allowOverlapping) {
 
         string += "";
