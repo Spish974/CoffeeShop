@@ -9,6 +9,15 @@
     <title>Document</title>
 </head>
 <body>
+
+<?php 
+    set_include_path('C:\wamp64\bin\php\php7.3.5\pear');
+    require "Mail.php";
+    require "Mail\mime.php";
+
+    
+    
+?>
     <div class="container">
         <form>
             <fieldset class="form-group row">

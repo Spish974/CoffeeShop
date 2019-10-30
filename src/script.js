@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    $ay="<?php echo $_SESSION['article'];?>";
+    alert($ay);
     notifPan();
     $( ".accueil .contenu *" ).css({"opacity":"0","transition":"none","transform":"translateY(50px)"});
     $(".popup-login .saisie.register").css('display', 'none');

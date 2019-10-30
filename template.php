@@ -6,13 +6,13 @@
     if (isset($_GET['page'])) {
         $page = $_GET['page'];
     }
-    if ($page == "menu" || $page == "panier" || $page == "compte" || $page == "admin" || $page == "AfficheClient" || $page == "CRUDProduit" || $page == "AjouteProduit" || $page == "VoirProduit"  ) {
+    if ($page == "menu" || $page == "panier" || $page == "compte" || $page == "admin" || $page == "CRUDClient" || $page == "VoirClient" || $page == "SupprimeClient" || $page == "ModifClient" || $page == "CRUDProduit" || $page == "AjouteProduit" || $page == "VoirProduit"  || $page == "SupprimeProduit"  || $page == "ModifProduit" ) {
         echo "<title>" . $page . "</title>";
     } else {
-        if(isset($_GET['redirection'])==false){
+        /*if(isset($_GET['redirection'])==false){
             header('Location: index.php');
             exit();
-        }
+        }*/
     }
 
     ?>

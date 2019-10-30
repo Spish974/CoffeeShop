@@ -27,10 +27,25 @@ class Base
             $_SESSION["Usernamesession"] = $donnees['Username'];
             $_SESSION["Emailsession"] = $donnees['Email'];
             $_SESSION["Statutsession"] = $donnees['Statut'];
+            $_SESSION["indexClientsession"] = $donnees['ID_Client'];
+            $idclient = $donnees['ID_Client'];
+            $panExist = $this->pdo->query("SELECT * FROM `Panier` WHERE Index_Client = '$idclient' ");
+            if ($panExist->rowCount() == 1) {
+                $listpan = $panExist->fetch();
+                $_SESSION["article"] = $listpan['produit'];
+            }
+
             return "1";
         } else {
             return "0";
         }
+
+        /*if($donnees['produit'] != null){
+            
+            $article = $_SESSION['produit']; 
+        }else{
+            $pdo->query("UPDATE `Panier` SET `produit`= '$article' WHERE `Index_Client` = '$ID_client'");
+        }*/
     }
 
     public function Deconnexion()
@@ -124,5 +139,25 @@ class Base
             }
             echo '</select>';
         }
+    }
+
+    public function createPanier()
+    {
+        $sessClient = $_SESSION["indexClientsession"];
+        $panExist = $this->pdo->query("SELECT * FROM `Panier` WHERE Index_Client = '$sessClient' ");
+        
+        if ($panExist->rowCount() > 0) {
+            
+            $donnees = $panExist->fetch();
+            
+            //echo "existe".$donnees["produit"];
+        }else {
+            //echo "existe pas";
+            //$idProduit = $idProduit + ";" + $_SESSION['ID_Produit'];
+            //$this->pdo->query("INSERT INTO `Panier` (`produit`) VALUES ('$idProduit')");
+            
+            //$this->pdo->query("INSERT INTO `Panier` (`ID_Panier`, `produit`, `Index_Client`) VALUES (NULL, '', '$sessClient')");
+            //echo $ID_Produit;
+        }      
     }
 }

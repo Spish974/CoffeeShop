@@ -3,7 +3,7 @@
     
 </head>
 <br /><br />
-<h2> Base produit actuelle <br /><br /><br /></h2>
+<h2> Base Client actuelle <br /><br /><br /></h2>
 
 
 
@@ -11,7 +11,7 @@
 include_once('Classe/ProcedureCRUD.php');
 
 $pdo = connectBdd();
-$stmt = selectTable($pdo,"Produit");
+$stmt = selectTable($pdo,"Client");
 /*$dsn = 'mysql:host=mysql-rlucas974.alwaysdata.net;dbname=rlucas974_coffeeshop;port=3306;charset=utf8';
 
 $pdo = new PDO($dsn, 'rlucas974', 'm9741223');
@@ -26,9 +26,9 @@ $stmt = $pdo->query("SELECT `ID_Produit`,`Libellé`,Prix FROM `Produit`");*/
             <thead class="thead-dark">
                 <tr>
                     <th>Référence</th>
-                    <th>Libellé</th>
-                    <th>Prix</th>
-                    <th>Action</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th></th>
                 </tr>
             </thead>
 
@@ -39,13 +39,13 @@ $stmt = $pdo->query("SELECT `ID_Produit`,`Libellé`,Prix FROM `Produit`");*/
                 <tbody>
                     <tr>
 
-                        <td scope="row"> <?php echo ($donnee["ID_Produit"]) ?> </td>
-                        <td> <?php echo ($donnee["Libellé"]) ?> </td>
-                        <td> <?php echo ($donnee["Prix"]) ?> </td>
+                        <td scope="row"> <?php echo ($donnee["ID_Client"]) ?> </td>
+                        <td> <?php echo ($donnee["Nom"]) ?> </td>
+                        <td> <?php echo ($donnee["Prenom"]) ?> </td>
                         <td> 
-                        <?php echo "<a id='btn_voir' class='btn btn-primary' href='template.php?page=VoirProduit&id_produit=" . $donnee['ID_Produit'] . "'> Voir </a>"; ?>  
-                        <?php echo "<a id='btn_modif' class='btn btn-primary' href='template.php?page=ModifProduit&id_produit=" . $donnee['ID_Produit'] . "'> Modifier </a>"; ?>
-                        <?php echo "<a id='btn_supprimer' class='btn btn-primary' href='template.php?page=SupprimeProduit&id_produit=" . $donnee['ID_Produit'] . "'> Supprimer </a>"; ?>
+                        <?php echo "<a id='btn_voir' class='btn btn-primary' href='template.php?page=VoirClient&id_client=" . $donnee['ID_Client'] . "'> Voir </a>"; ?>  
+                        <?php echo "<a id='btn_modif' class='btn btn-primary' href='template.php?page=ModifClient&id_client=" . $donnee['ID_Client'] . "'> Modifier </a>"; ?>
+                        <?php echo "<a id='btn_supprimer' class='btn btn-primary' href='template.php?page=SupprimeClient&id_client=" . $donnee['ID_Client'] . "'> Supprimer </a>"; ?>
                         </td>
                     </tr>
                 </tbody>
