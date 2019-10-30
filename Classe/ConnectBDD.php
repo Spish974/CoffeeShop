@@ -75,31 +75,25 @@ class Base
     public function stringToPanier(){
         $chaine=$this->TranscriptLocalphp();
         $pos=0;
+        $tot=0;
         for($i=0;$i<(substr_count($chaine,"A"));$i++){
             $where=substr($chaine,stripos($chaine,"A",$pos)+1,stripos($chaine,"b",$pos)-stripos($chaine,"A",$pos)-1);
+            $quant=substr($chaine,stripos($chaine,"b",$pos)+1,stripos($chaine,"e",$pos)-stripos($chaine,"b",$pos)-1);
             $stmt=$this->pdo->query("SELECT * FROM `Produit` WHERE `ID_Produit`='$where'");
             if ($stmt->rowCount() == 1) {
                 $donnees = $stmt->fetch();
-                echo "<div>".$donnees["Libellé"]." ".
-                substr($chaine,stripos($chaine,"b",$pos)+1,stripos($chaine,"e",$pos)-stripos($chaine,"b",$pos)-1)."</div>";
+                $tot = $tot + ($donnees["Prix"] * $quant);
+                echo "<div>" . $quant . " " . $donnees["Libellé"] . " = " . ($donnees["Prix"] * $quant) . "€ </div>";
+            
             }
             $pos=stripos($chaine,"e",$pos)+1;
+            
+            //$tot = $tot + ($donnees["Prix"] * );
+            //echo $donnees["Prix"]."€ <br>"; 
         }
+        echo "<br> Total à régler : ".$tot."€";
     }
 
-    public function recupPanier()
-    {
-        $listpan = $this->pdo->query("SELECT `Libellé`,`Prix` FROM `Produit` ");
-        if ($listpan->rowCount() > 0) {
-            $_SESSION["Libellé"] = array();
-            $_SESSION["Prix"] = array();
-
-            while ($donnees = $listpan->fetch()) {
-                $_SESSION["Libellé"][] = $donnees["Libellé"];
-                $_SESSION["Prix"][] = $donnees["Prix"];
-            }
-        }
-    }
     public function createPanier()
     {
         $sessClient = $_SESSION["indexClientsession"];
@@ -111,7 +105,7 @@ class Base
             //echo "existe".$donnees["produit"];
         }else {
             //echo "existe pas";
-            $this->pdo->query("INSERT INTO `Panier` (`ID_Panier`, `produit`, `Index_Client`) VALUES (NULL, 'test', '$sessClient')");
+            $this->pdo->query("INSERT INTO `Panier` (`ID_Panier`, `produit`, `Index_Client`) VALUES (NULL, '', '$sessClient')");
         }      
     }
 }

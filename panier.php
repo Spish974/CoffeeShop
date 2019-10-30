@@ -8,16 +8,16 @@
     <?php
     if (isset($_SESSION["logconnect"]) == true) {
         if ($_SESSION["nomsession"] == null) {
-            echo "<div class='propriétaire'><h1>" /*. $page . */ . " de " . $_SESSION["Usernamesession"] . "</h1></div>";
+            echo "<div class='propriétaire'><h1>" . " de " . $_SESSION["Usernamesession"] . "</h1></div>";
         } else {
-            echo "<div class='propriétaire'><h1>" /*. $page . */ . " de " . $_SESSION["nomsession"] . " " . $_SESSION["prenomsession"] . "</h1></div>";
+            echo "<div class='propriétaire'><h1>" . " de " . $_SESSION["nomsession"] . " " . $_SESSION["prenomsession"] . "</h1></div>";
         }
     } else { }
 
+    ?> <button id='deconnexion' onClick=""> <a href="template.php?page=reglement"> Valider votre commande </a> </button> <?php
     if (isset($_SESSION["logconnect"]) == true) {
         $bdd->createPanier();
         ?> 
-        <button id='deconnexion' onClick=""> <a href="window.location='template.php?page=reglement'"> Valider votre commande </a> </button>
         <button id='deconnexion' onClick=""> <a href="deconnexion.php"> Deconnexion </a> </button> 
         <?php
     }else {
