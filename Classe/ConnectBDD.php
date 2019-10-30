@@ -108,16 +108,10 @@ class Base
         if ($panExist->rowCount() > 0) {
             
             $donnees = $panExist->fetch();
-            echo "existe".$donnees["produit"];
+            //echo "existe".$donnees["produit"];
         }else {
-            echo "existe pas";
+            //echo "existe pas";
             $this->pdo->query("INSERT INTO `Panier` (`ID_Panier`, `produit`, `Index_Client`) VALUES (NULL, 'test', '$sessClient')");
         }      
     }
-
-    /*public function ajoutPanier()
-    {
-        produitpanier = idproduitproduit where $sessionidclientpanier ==$_SESSIONidclientclient
-        
-    }*/
 }
