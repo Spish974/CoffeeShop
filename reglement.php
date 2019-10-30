@@ -13,5 +13,4 @@
         <?php
         $bdd->stringToPanier();
         ?>
-        <input type="button" id="videPanButt" value="Vider le panier">
     </div>

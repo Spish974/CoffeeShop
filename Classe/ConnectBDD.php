@@ -76,22 +76,25 @@ class Base
         $chaine=$this->TranscriptLocalphp();
         $pos=0;
         $tot=0;
-        for($i=0;$i<(substr_count($chaine,"A"));$i++){
-            $where=substr($chaine,stripos($chaine,"A",$pos)+1,stripos($chaine,"b",$pos)-stripos($chaine,"A",$pos)-1);
-            $quant=substr($chaine,stripos($chaine,"b",$pos)+1,stripos($chaine,"e",$pos)-stripos($chaine,"b",$pos)-1);
+        for ($i=0;$i<(substr_count($chaine, "A"));$i++) {
+            $where=substr($chaine, stripos($chaine, "A", $pos)+1, stripos($chaine, "b", $pos)-stripos($chaine, "A", $pos)-1);
+            $quant=substr($chaine, stripos($chaine, "b", $pos)+1, stripos($chaine, "e", $pos)-stripos($chaine, "b", $pos)-1);
             $stmt=$this->pdo->query("SELECT * FROM `Produit` WHERE `ID_Produit`='$where'");
             if ($stmt->rowCount() == 1) {
                 $donnees = $stmt->fetch();
                 $tot = $tot + ($donnees["Prix"] * $quant);
                 echo "<div>" . $quant . " " . $donnees["Libellé"] . " = " . ($donnees["Prix"] * $quant) . "€ </div>";
-            
             }
-            $pos=stripos($chaine,"e",$pos)+1;
-            
-            //$tot = $tot + ($donnees["Prix"] * );
-            //echo $donnees["Prix"]."€ <br>"; 
+            $pos=stripos($chaine, "e", $pos)+1;
         }
-        echo "<br> Total à régler : ".$tot."€";
+        if ($tot == 0) {
+            echo "Votre panier est vide ! ";
+            ?> <button id='menu' onClick=""> <a href="template.php?page=menu"> Menu </a> </button> <?php
+        } else {
+            echo "<br> Total à régler : " . $tot . "Eur <br>";
+            ?> <input type="button" id="videPanButt" value="Vider le panier"> <?php
+        }
+        
     }
 
     public function createPanier()

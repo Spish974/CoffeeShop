@@ -14,10 +14,11 @@
         }
     } else { }
 
-    ?> <button id='deconnexion' onClick=""> <a href="template.php?page=reglement"> Valider votre commande </a> </button> <?php
+    ?>  <?php
     if (isset($_SESSION["logconnect"]) == true) {
         $bdd->createPanier();
         ?> 
+        <button id='deconnexion' onClick=""> <a href="template.php?page=reglement"> Valider votre commande </a> </button>
         <button id='deconnexion' onClick=""> <a href="deconnexion.php"> Deconnexion </a> </button> 
         <?php
     }else {
@@ -29,5 +30,4 @@
         <?php
         $bdd->stringToPanier();
         ?>
-        <input type="button" id="videPanButt" value="Vider le panier">
     </div>
