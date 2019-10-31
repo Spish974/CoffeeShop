@@ -6,6 +6,7 @@
 
 
         if (isset($_GET['Ajout_Libellé'])) {
+         
             $transfert = $pdo->query("INSERT INTO `Produit`(`ID_Produit`, `Libellé`, Catégorie, `Prix`, `Description`) VALUES (Null,'$_GET[Ajout_Libellé]','$_GET[Ajout_Catégorie]','$_GET[Ajout_Prix]','$_GET[Ajout_Description]')");
             require("CRUDProduit.php");
             exit();

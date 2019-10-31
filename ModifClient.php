@@ -7,25 +7,25 @@ $get_id_produit = $_GET['id_client'];
 if (isset($_POST['modif_nom']) && !empty('modif_nom') ) {
     modifieAttributLigne($pdo,"Client","Nom",$_POST['modif_nom'],"ID_Client",$get_id_produit);
 }
-if (isset($_POST['modif_prenom']) && !empty('modif_prenom')) {
+if (isset($_POST['modif_prenom']) && !empty($_POST['modif_prenom'])) {
     modifieAttributLigne($pdo,"Client","Prenom",$_POST['modif_prenom'],"ID_Client",$get_id_produit);
 }
-if (isset($_POST['modif_téléphone']) && !empty('modif_téléphone')) {
+if (isset($_POST['modif_téléphone']) && !empty($_POST['modif_téléphone'])) {
     modifieAttributLigne($pdo,"Client","Telephone",$_POST['modif_téléphone'],"ID_Client",$get_id_produit);
 }
-if (isset($_POST['modif_index_adresse']) && !empty('modif_index_adresse')) {
+if (isset($_POST['modif_index_adresse']) && !empty($_POST['modif_index_adresse'])) {
     modifieAttributLigne($pdo,"Client","Index_Adresse",$_POST['modif_index_adresse'],"ID_Client",$get_id_produit);
 }
-if (isset($_POST['modif_username']) && !empty('modif_username')) {
+if (isset($_POST['modif_username']) && !empty($_POST['modif_username'])) {
     modifieAttributLigne($pdo,"Client","Username",$_POST['modif_username'],"ID_Client",$get_id_produit);
 }
-if (isset($_POST['modif_email']) && !empty('modif_email')) {
+if (isset($_POST['modif_email']) && !empty($_POST['modif_email'])) {
     modifieAttributLigne($pdo,"Client","Email",$_POST['modif_email'],"ID_Client",$get_id_produit);
 }
-if (isset($_POST['modif_password']) && !empty('modif_password')) {
+if (isset($_POST['modif_password']) && !empty($_POST['modif_password'])) {
     modifieAttributLigne($pdo,"Client","Password",$_POST['modif_password'],"ID_Client",$get_id_produit);
 }
-if (isset($_POST['modif_statut']) && !empty('modif_statut')) {
+if (isset($_POST['modif_statut']) && !empty($_POST['modif_statut'])) {
     modifieAttributLigne($pdo,"Client","Statut",$_POST['modif_statut'],"ID_Client",$get_id_produit);
 }
 

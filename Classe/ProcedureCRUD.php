@@ -18,19 +18,19 @@ function voirLigne($pdo, $table,$nom_id,$num_id )
     return $stmt;
 }
 
-function supprimeLigne($pdo,$table,$nom_id,$num_id){
+function supprimeLigne($pdo,$table,$nom_id,$num_id,$page_retour){
     $sql_supprime = "DELETE FROM $table WHERE $nom_id =".$num_id;
 
     $pdo->prepare($sql_supprime);
     if($pdo->exec($sql_supprime) != 0){
     echo("la référence: ".$num_id." a été supprimée");
-    require("CRUDProduit.php");
+    require($page_retour);
     exit();
  }
  else{
-     echo"aucunne ligne n'a été supprimée";
+     echo"aucune ligne n'a été supprimée";
      
-     require("CRUDProduit.php");
+     require($page_retour);
      exit();
  }
     

@@ -55,7 +55,7 @@ $stmt = $pdo->query("SELECT `ID_Produit`,`Libellé`,Prix FROM `Produit`");*/
         </div>
         <br /><br /><br />
 
-        <a name="AjouteProduit" id="btn_ajout_produit" class="btn btn-primary" href="template.php?page=AjouteProduit" role="button">Ajouter un produit</a>
+        <a name="AjouteProduit" id="btn_ajout_produit" class="btn btn-primary" href="template.php?page=AjouteClient" role="button">Ajouter un client</a>
 
         <?php
         //$transfert = $pdo->query("INSERT INTO `Produit`(`ID_Produit`, `Libellé`, `Prix`, `Description`, Catégorie) VALUES ('123456','test','1.99','testestest','testcatégorie')"); 

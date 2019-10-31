@@ -4,16 +4,16 @@ $pdo=connectBdd();
 $get_id_produit = $_GET['id_produit'];
 
 
-if (isset($_POST['modif_libellé']) && !empty('modif_libellé') ) {
+if (isset($_POST['modif_libellé']) && !empty($_POST['modif_libellé']) ) {
     modifieAttributLigne($pdo,"Produit","Libellé",$_POST['modif_libellé'],"ID_Produit",$get_id_produit);
 }
-if (isset($_POST['modif_catégorie']) && !empty('modif_catégorie') ) {
+if (isset($_POST['modif_catégorie']) && !empty($_POST['modif_catégorie']) ) {
     modifieAttributLigne($pdo,"Produit","Catégorie",$_POST['modif_catégorie'],"ID_Produit",$get_id_produit);
 }
-if (isset($_POST['modif_prix']) && !empty('modif_prix')) {
+if (isset($_POST['modif_prix']) && !empty($_POST['modif_prix'])) {
     modifieAttributLigne($pdo,"Produit","prix",$_POST['modif_prix'],"ID_Produit",$get_id_produit);
 }
-if (isset($_POST['modif_description']) && !empty('modif_description')) {
+if (isset($_POST['modif_description']) && !empty($_POST['modif_description'])) {
     modifieAttributLigne($pdo,"Produit","description",$_POST['modif_description'],"ID_Produit",$get_id_produit);
 }
 

@@ -52,7 +52,7 @@
   <br />
   <div class="row">
     <div class="col-lg-6">
-      <a name="" id="" class="btn btn-primary" href="template.php?page=CRUDProduit" role="button">retour</a>
+      <a name="" id="" class="btn btn-primary" href="template.php?page=CRUDClient" role="button">retour</a>
     </div>
   </div>
 </div>
