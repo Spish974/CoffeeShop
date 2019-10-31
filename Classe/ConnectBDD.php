@@ -34,6 +34,9 @@ class Base
                 $listpan = $panExist->fetch();
                 $_SESSION["article"] = $listpan['produit'];
             }
+            if(isset($_SESSION["article"]) && $_SESSION["article"]!=""){
+                echo '<input type="hidden" id="valSavePanCli" value="'.$_SESSION["article"].'"></input>';
+            }
 
             return "1";
         } else {
@@ -96,8 +99,8 @@ class Base
     public function stringToPanier()
     {
         $chaine="";
-        if(isset($_SESSION["indexClientsession"]))
-        $chaine = $this->TranscriptLocalphp();
+        if(isset($_SESSION["article"]))
+        $chaine=$_SESSION["article"];
         $pos = 0;
         $nbarticle = substr_count($chaine, "A");
         if ($nbarticle > 0) {
@@ -122,6 +125,10 @@ class Base
         }else{
             echo "<div><p>Votre panier est vide</p></div>";
         }
+    }
+
+    public function azeqsd(){
+        echo $_SESSION["article"];
     }
 
     public function recupPanier()

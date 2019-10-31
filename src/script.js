@@ -56,11 +56,32 @@ $(document).ready(function () {
     $('#videPanButt').on("click", function(){clearPan();});
 
     $(".list-article-unite span.ajouter-panier").on("click", function(){localsArtPan($(this));});
+    
+    phpToLocalstorage();
+    function phpToLocalstorage(){
+        
+        if($("#valSavePanCli").length && localStorage.getItem("article")==null){
+            localStorage.setItem("article",$("#valSavePanCli").attr("value"));
+            
+            $lsg= $("#valSavePanCli").attr("value");
+            $nboccurence=occurrences($lsg,"b");
+            $countart=0;
+            for(i=0;i<$nboccurence;i++)
+            {
+                $countart += parseInt($lsg.substring($lsg.indexOf("b")+1,$lsg.indexOf("e")));
+                $lsg=$lsg.substring($lsg.indexOf("e")+1);
+            }
+            localStorage.setItem("nbArticle",$countart);
+            notifPan();
+        }
+    }
+
 
     function clearPan(){
-        localStorage.removeItem("article")
+        localStorage.removeItem("article");
+        localStorage.removeItem("nbArticle");
         var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("GET", "Classe/TranscriptionLocalPhp.php?art=", false ); // false for synchronous request
+        xmlHttp.open("GET", "Classe/TranscriptionLocalPhp.php", false ); // false for synchronous request
         xmlHttp.send(null);
         document.location.href="/template.php?page=panier";
     }
@@ -71,12 +92,12 @@ $(document).ready(function () {
         $posindex=$lsg.indexOf("A"+$artAjout+"b");
         if($posindex==-1){
             localStorage.setItem("article",$lsg+"A"+$this.attr("idarticle")+"b1e");
-            notifPan();
+            ajoutnotifPan();
         }else{
             $part1=$lsg.indexOf("b",$posindex);
             $part2=$lsg.indexOf("e",$posindex);            
             localStorage.setItem("article",$lsg.substring(0,$part1+1)+(parseInt($lsg.substring($part1+1,$part2))+1)+$lsg.substring($part2));
-            notifPan();
+            ajoutnotifPan();
         }
     }
 
@@ -99,9 +120,8 @@ $(document).ready(function () {
         }
         return n;
     }
-    function notifPan(){
+    function ajoutnotifPan(){
         $lsg= localStorage.getItem("article")!=null ? localStorage.getItem("article"):"";
-
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open("GET", "Classe/TranscriptionLocalPhp.php?art="+$lsg, true ); // false for synchronous request
         xmlHttp.send(null);
@@ -109,10 +129,18 @@ $(document).ready(function () {
         $countart=0;
         for(i=0;i<$nboccurence;i++)
         {
-            
             $countart += parseInt($lsg.substring($lsg.indexOf("b")+1,$lsg.indexOf("e")));
             $lsg=$lsg.substring($lsg.indexOf("e")+1);
         }
+        localStorage.setItem("nbArticle",$countart);
+        notifPan();
+    }
+    function notifPan(){
+        $countart=0;
+        if(localStorage.getItem("nbArticle")){
+            $countart=localStorage.getItem("nbArticle");
+        }
+        
         if($countart!=0){
             $("span.notif-pan").html($countart);
             $("span.notif-pan").css({"transition":"","transform":""});
