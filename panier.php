@@ -18,7 +18,6 @@
     if (isset($_SESSION["logconnect"]) == true) {
         $bdd->createPanier();
         ?> 
-        <button id='deconnexion' onClick=""> <a href="template.php?page=reglement"> Valider votre commande </a> </button>
 
         <?php
     }else {
@@ -32,5 +31,4 @@
         $bdd->stringToPanier();
         ?>
     </div>
-    <input type="button" id="videPanButt" value="Vider le panier">
 </div>

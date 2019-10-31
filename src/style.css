@@ -907,7 +907,7 @@ select#catg-select {
     height: 90px;
     width: 90px;
 }
-input#videPanButt {
+input#videPanButt, a.validecommande {
     background-color: #f17259;
     color: white;
     font-family: "Roboto";
@@ -915,6 +915,9 @@ input#videPanButt {
     border-radius: 6px;
     padding: 5px 15px;
     cursor: pointer;
+}
+a.validecommande {
+    background-color: #4aa74a;
 }
 .element-pan {
     min-height: 200px;

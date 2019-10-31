@@ -122,6 +122,8 @@ class Base
                 echo "</tr>";
             }
             echo "</table>";
+            echo '<div><input type="button" id="videPanButt" value="Vider le panier">
+            <a class="validecommande" href="template.php?page=reglement"> Valider votre commande </a></div>';
         }else{
             echo "<div><p>Votre panier est vide</p></div>";
         }
