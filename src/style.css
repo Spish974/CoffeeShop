@@ -879,7 +879,7 @@ select#catg-select {
     border-bottom: solid 1px #cecece;
 }
 .element-pan tbody {
-    display: grid;
+    display: inline-block;
 }
 .element-pan .tabLibelle div,.tabQuantite div,.tabQuantPrix div{
     text-align: left;
