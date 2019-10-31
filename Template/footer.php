@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 <footer>
     <h1>Coffee Shop</h1>
     <div class="cont-1">
@@ -15,5 +13,3 @@
     </div>
     <p class="credit">Par Rayan, Philippe et Adnan - 2019</p>
 </footer>
-
-</html>

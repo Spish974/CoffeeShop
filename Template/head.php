@@ -6,15 +6,14 @@
         exit();
     }
     ?>
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Indie+Flower|Pacifico|Satisfy&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <title>Coffee Shop</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="icon" type="image/png" href="src/img/icon.png" />
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="src/script.js"> </script>
     <link rel="stylesheet" href="src/bootstrap.css"/>
     <link href="src/fontawesome/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="src/style.css" />
+    <script src="src/jquery-1.11.3.min.js"></script>
+    <script src="src/script.js"> </script>
 </head>

@@ -82,12 +82,21 @@ class Base
     }
     public function TranscriptLocalphp()
     {
-        if (isset($_SESSION["article"])) {
-            return $_SESSION["article"];
+        $idclient="-1";
+        if(isset($_SESSION["indexClientsession"]))
+        $idclient=$_SESSION["indexClientsession"];
+        $pan=$this->pdo->query("SELECT `produit` FROM `Panier` WHERE `Index_Client`='$idclient'");
+        if ($pan->rowCount() == 1) {
+            $donnees = $pan->fetch();
+            return $donnees["produit"];
+        }else{
+            return "";
         }
     }
     public function stringToPanier()
     {
+        $chaine="";
+        if(isset($_SESSION["indexClientsession"]))
         $chaine = $this->TranscriptLocalphp();
         $pos = 0;
         $nbarticle = substr_count($chaine, "A");

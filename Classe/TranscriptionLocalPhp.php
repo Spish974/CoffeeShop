@@ -4,8 +4,8 @@
 session_start();  
     if (isset($_GET["art"])) {
         $article = $_GET["art"];
-        if($article == null){
-            //$_SESSION["article"]=$article;
+        if($article != null){
+            $_SESSION["article"]=$article;
         }
         
     
@@ -23,7 +23,7 @@ session_start();
                 }else{
                     $article = $_SESSION['produit']; 
                 }*/
-            //$pdo->query("UPDATE `Panier` SET `produit`= '$article' WHERE `Index_Client` = '$ID_client'");
+                $pdo->query("UPDATE `Panier` SET `produit`= '$article' WHERE `Index_Client` = '$ID_client'");
             }else{
                 $pdo->query("INSERT INTO `Panier` (`ID_Panier`, `produit`, `Index_Client`) VALUES (NULL, '$article', '$ID_client')");
             }

@@ -30,7 +30,7 @@
         echo "Connectez-vous avec l'onglet \"Login\" pour voir votre panier !" . '<br>';
     }
     ?>
-
+</div>
 <div class='resume' style="margin-top:20px">
     <div class="element-pan">
         <?php
